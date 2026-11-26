@@ -3,6 +3,4 @@
     <!-- Window colours only; Compose colour tokens live in ui/theme/Color.kt. -->
     <color name="canvas">#FF101014</color>
     <color name="lilac">#FFC9BDE8</color>
-    <color name="launcher_backdrop_top">#FF3B3548</color>
-    <color name="launcher_backdrop_bottom">#FF16141B</color>
 </resources>

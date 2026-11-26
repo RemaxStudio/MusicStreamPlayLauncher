@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Adaptive launcher icon. The layer is the full-bleed square logo (logo.png, not the rounded
+    variant): launchers apply their own mask (circle / squircle / rounded square), so the artwork
+    must not carry rounded corners itself. The logo fills the central 76dp of the 108dp layer and
+    the outer ring is a mirrored, blurred continuation so zoom and parallax never reveal a seam.
+    Legacy mipmaps: ic_launcher = rounded logo (logo-圆角.png), ic_launcher_round = circular crop.
+-->
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-    <background android:drawable="@drawable/launcher_backdrop" />
-    <foreground android:drawable="@drawable/launcher_glyph" />
-    <monochrome android:drawable="@drawable/launcher_glyph_mono" />
+    <background android:drawable="@mipmap/ic_launcher_layer" />
+    <foreground android:drawable="@android:color/transparent" />
+    <monochrome android:drawable="@drawable/ic_launcher_monochrome" />
 </adaptive-icon>

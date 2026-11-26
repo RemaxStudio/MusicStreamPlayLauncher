@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Monochrome layer for Android 13+ themed icons: the beamed note of the logo, inside the 66dp safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M45.2,38.6L74.2,32.4L74.2,63L68.7,63L68.7,39.8L50.8,43.7L50.8,67L45.2,67Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M33.8,67.2a8.5,7.6 0,1 0,17 0a8.5,7.6 0,1 0,-17 0z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M57.2,63.2a8.5,7.6 0,1 0,17 0a8.5,7.6 0,1 0,-17 0z" />
+</vector>
