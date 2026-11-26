@@ -135,7 +135,7 @@
     <item quantity="other">%d folder</item>
   </plurals>
   <string name="local_music_permission_title">Akses muzik anda</string>
-  <string name="local_music_permission_message">Benarkan LocalPure mencari dan memainkan fail audio yang disimpan pada peranti ini.</string>
+  <string name="local_music_permission_message">Benarkan Music Stream Play Launcher mencari dan memainkan fail audio yang disimpan pada peranti ini.</string>
   <string name="local_music_allow_access">Benarkan akses</string>
   <string name="local_music_open_settings">Buka tetapan</string>
   <string name="local_music_empty_title">Tiada muzik tempatan ditemui</string>
@@ -148,7 +148,7 @@
   <string name="home_section_most_played">Paling kerap dimainkan</string>
   <string name="home_section_my_playlist">Senarai main saya</string>
   <string name="home_section_recently_played">Baru dimainkan</string>
-  <string name="home_section_more">Lagi ›</string>
+  <string name="home_section_more">Lagi</string>
   <string name="home_play_all">Main semua</string>
   <string name="home_add_new_playlist">Tambah senarai main baharu</string>
   <string name="home_favorite_songs">Lagu kegemaran saya</string>

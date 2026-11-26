@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="playlist_name_taken">Đã có danh sách phát với tên này</string>
+    <string name="playlist_add_failed">Không thể thêm bài hát vào danh sách phát này</string>
+    <string name="playlist_update_failed">Không thể cập nhật danh sách phát này. Hãy thử lại.</string>
+</resources>

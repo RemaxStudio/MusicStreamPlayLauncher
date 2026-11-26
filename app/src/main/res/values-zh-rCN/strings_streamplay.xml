@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="playlist_name_taken">已存在同名歌单</string>
+    <string name="playlist_add_failed">无法将歌曲添加到此歌单</string>
+    <string name="playlist_update_failed">无法更新此歌单，请重试。</string>
+</resources>

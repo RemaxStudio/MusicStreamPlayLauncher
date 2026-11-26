@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="playlist_name_taken">同じ名前のプレイリストがすでにあります</string>
+    <string name="playlist_add_failed">この曲をプレイリストに追加できませんでした</string>
+    <string name="playlist_update_failed">プレイリストを更新できませんでした。もう一度お試しください。</string>
+</resources>

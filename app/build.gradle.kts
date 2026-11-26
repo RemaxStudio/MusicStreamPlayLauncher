@@ -1,223 +1,193 @@
-import java.time.Instant
 import java.time.ZoneOffset
+import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.room)
     alias(libs.plugins.google.ksp)
     alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.google.firebase.crashlytics)
 }
 
-@Suppress("UNCHECKED_CAST")
-fun extraMap(name: String): Map<String, Any?> {
-    return (rootProject.findProperty(name) as? Map<*, *>)
-        ?.mapKeys { it.key.toString() }
-        ?: emptyMap()
-}
+/**
+ * Typed view over the Groovy `ext` maps written by scripts/internal.gradle or scripts/official.gradle.
+ * Every lookup falls back to a safe default so a partially filled channel config never breaks the build.
+ */
+class ChannelConfig(private val values: Map<String, Any?>) {
+    fun text(key: String, fallback: String = ""): String = values[key]?.toString() ?: fallback
 
-fun Map<String, Any?>.stringValue(name: String, defaultValue: String = ""): String {
-    return this[name]?.toString() ?: defaultValue
-}
-
-fun Map<String, Any?>.intValue(name: String, defaultValue: Int): Int {
-    return when (val value = this[name]) {
-        is Number -> value.toInt()
-        is String -> value.toIntOrNull() ?: defaultValue
-        else -> defaultValue
+    fun number(key: String, fallback: Int): Int = when (val raw = values[key]) {
+        is Number -> raw.toInt()
+        is String -> raw.toIntOrNull() ?: fallback
+        else -> fallback
     }
 }
 
-fun booleanGradleProperty(name: String, defaultValue: Boolean): Boolean {
-    return providers.gradleProperty(name).orNull?.let { value ->
-        when {
-            value.equals("true", ignoreCase = true) -> true
-            value.equals("false", ignoreCase = true) -> false
-            else -> defaultValue
-        }
-    } ?: defaultValue
+fun channelConfig(section: String): ChannelConfig {
+    val raw = rootProject.findProperty(section) as? Map<*, *> ?: emptyMap<Any?, Any?>()
+    return ChannelConfig(raw.entries.associate { (key, value) -> key.toString() to value })
 }
 
-fun secretValue(name: String): String {
-    return rootProject.findProperty(name)?.toString()?.trim()?.takeIf { it.isNotEmpty() }
-        ?: System.getenv(name)?.trim().orEmpty()
-}
+fun flag(name: String, fallback: Boolean): Boolean =
+    providers.gradleProperty(name).orNull?.trim()?.lowercase()?.toBooleanStrictOrNull() ?: fallback
 
-/** Converts project metadata into a portable artifact file-name segment. */
-fun String.toArtifactNameSegment(fallback: String): String {
-    return trim()
-        .replace(Regex("[^A-Za-z0-9._-]+"), "_")
-        .trim('_', '.', '-')
-        .ifEmpty { fallback }
+/** Secrets resolve from Gradle properties first, then from the CI environment. */
+fun secret(name: String): String =
+    (rootProject.findProperty(name)?.toString() ?: System.getenv(name)).orEmpty().trim()
+
+fun String.asBuildConfigLiteral(): String = "\"" + replace("\\", "\\\\").replace("\"", "\\\"") + "\""
+
+fun String.asFileSegment(fallback: String): String =
+    replace(Regex("[^A-Za-z0-9._-]+"), "_").trim('_', '.', '-').ifEmpty { fallback }
+
+/** Reads the package declared by a flavour's google-services.json so applicationId always matches Firebase. */
+fun firebasePackage(flavor: String): String? {
+    val json = file("src/$flavor/google-services.json").takeIf { it.isFile } ?: return null
+    val root = groovy.json.JsonSlurper().parse(json) as? Map<*, *> ?: return null
+    val client = (root["client"] as? List<*>)?.firstOrNull() as? Map<*, *> ?: return null
+    val info = (client["client_info"] as? Map<*, *>)?.get("android_client_info") as? Map<*, *>
+    return info?.get("package_name")?.toString()
 }
 
 /**
- * 客户端音乐平台凭据会随 APK/AAB 分发，本质上可被提取；这里作为 Remote Config 未下发时的
- * 可用性兜底。CI 同名环境变量仍可覆盖内置值，便于密钥轮换而无需修改业务代码。
+ * Streaming catalog credentials ship inside the APK as an availability fallback until Remote Config
+ * delivers fresh ones. CI can override each list through environment variables of the same name.
  */
-val builtInMusicJamendoClientIds = "617fcfac,20b76c90"
-val builtInMusicAudiusApiKeys =
-    "c53b3d1db49ff769804066f25b888bd357e834c4,707211e30a70f8c6f31d396d3cdff01069399fd7"
-val builtInMusicAudiusBearerTokens =
-    "EjrggU1WfiJnQS1Ivn9PJEOkFnZvcmOmOo-r2kwtlOI=,x0EOhgSCurVAb2rRSVHDb6H2FdhHcNU9NNVO3JqijbA="
-
-fun musicCredential(name: String, builtInValue: String): String =
-    providers.environmentVariable(name).orNull?.trim()?.takeIf(String::isNotEmpty)
-        ?: builtInValue
-
-fun buildConfigString(value: String): String =
-    "\"${value.replace("\\", "\\\\").replace("\"", "\\\"")}\""
-
-fun resolveSigningFile(path: String) = file(path).takeIf { it.isAbsolute } ?: rootProject.file(path)
-
-fun googleServicesPackageName(flavor: String): String? {
-    val servicesFile = file("src/$flavor/google-services.json")
-    if (!servicesFile.isFile) return null
-
-    val json = groovy.json.JsonSlurper().parse(servicesFile) as? Map<*, *> ?: return null
-    val clients = json["client"] as? List<*> ?: return null
-    val clientInfo = (clients.firstOrNull() as? Map<*, *>)?.get("client_info") as? Map<*, *> ?: return null
-    val androidInfo = clientInfo["android_client_info"] as? Map<*, *> ?: return null
-    return androidInfo["package_name"]?.toString()
+object SourceDefaults {
+    const val JAMENDO_CLIENT_IDS = "617fcfac,20b76c90"
+    const val AUDIUS_API_KEYS =
+        "c53b3d1db49ff769804066f25b888bd357e834c4,707211e30a70f8c6f31d396d3cdff01069399fd7"
+    const val AUDIUS_BEARER_TOKENS =
+        "EjrggU1WfiJnQS1Ivn9PJEOkFnZvcmOmOo-r2kwtlOI=,x0EOhgSCurVAb2rRSVHDb6H2FdhHcNU9NNVO3JqijbA="
 }
 
-val appConfig = extraMap("app")
-val analyticsConfig = extraMap("analytics")
-val legalConfig = extraMap("legal")
+fun sourceCredential(envName: String, fallback: String): String =
+    providers.environmentVariable(envName).orNull?.trim()?.takeIf(String::isNotEmpty) ?: fallback
 
-val resolvedVersionName = appConfig.stringValue("versionName", "1.0.0")
-val googleReleaseKeystorePath = secretValue("ANDROID_SIGNING_STORE_FILE")
-val googleReleaseKeystoreFile = if (googleReleaseKeystorePath.isNotEmpty()) {
-    resolveSigningFile(googleReleaseKeystorePath)
-} else {
-    file("src/google/google-release.keystore")
+val app = channelConfig("app")
+val analytics = channelConfig("analytics")
+val legal = channelConfig("legal")
+
+val appVersionName = app.text("versionName", "1.0.0")
+val appVersionCode = app.number("versionCode", 1)
+val fallbackPackage = app.text("applicationId", "com.streamplay.music")
+
+val releaseKeystore = secret("ANDROID_SIGNING_STORE_FILE").let { path ->
+    when {
+        path.isEmpty() -> file("src/google/google-release.keystore")
+        file(path).isAbsolute -> file(path)
+        else -> rootProject.file(path)
+    }
 }
-val googleReleaseStorePassword = secretValue("ANDROID_SIGNING_STORE_PASSWORD").ifEmpty { "google123456" }
-val googleReleaseKeyAlias = secretValue("ANDROID_SIGNING_KEY_ALIAS").ifEmpty { "google" }
-val googleReleaseKeyPassword = secretValue("ANDROID_SIGNING_KEY_PASSWORD").ifEmpty { "google123456" }
-val hasGoogleReleaseSigning = googleReleaseKeystoreFile.isFile &&
-    googleReleaseKeystoreFile.length() > 0L &&
-    googleReleaseStorePassword.isNotEmpty() &&
-    googleReleaseKeyAlias.isNotEmpty() &&
-    googleReleaseKeyPassword.isNotEmpty()
-val googleReleaseArtifactTaskPrefixes = listOf("assemble", "bundle", "package", "publish")
-val requiresGoogleReleaseSigning = gradle.startParameter.taskNames.any { taskName ->
-    val simpleTaskName = taskName.substringAfterLast(':').lowercase()
-    // Metadata helper tasks mention GoogleRelease but do not produce a signed artifact.
-    simpleTaskName.contains("googlerelease") &&
-        googleReleaseArtifactTaskPrefixes.any(simpleTaskName::startsWith)
+val releaseStorePassword = secret("ANDROID_SIGNING_STORE_PASSWORD").ifEmpty { "google123456" }
+val releaseKeyAlias = secret("ANDROID_SIGNING_KEY_ALIAS").ifEmpty { "google" }
+val releaseKeyPassword = secret("ANDROID_SIGNING_KEY_PASSWORD").ifEmpty { "google123456" }
+val releaseSigningReady = releaseKeystore.isFile && releaseKeystore.length() > 0L
+
+// Only artifact-producing GoogleRelease tasks demand a real keystore; metadata helpers do not.
+val buildsSignedRelease = gradle.startParameter.taskNames
+    .map { it.substringAfterLast(':').lowercase() }
+    .any { task -> "googlerelease" in task && listOf("assemble", "bundle", "package", "publish").any(task::startsWith) }
+
+val minifyRelease = flag("android.release.minifyEnabled", true)
+val shrinkReleaseResources = flag("android.release.shrinkResourcesEnabled", false)
+val optimizeRelease = flag("android.release.optimizeEnabled", minifyRelease)
+
+val bundleFileName: String = run {
+    val stamp = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss").format(ZonedDateTime.now(ZoneOffset.UTC))
+    val project = rootProject.name.asFileSegment("android_app")
+    "${project}_google_release_v${appVersionName.asFileSegment("unknown")}_${stamp}_UTC.aab"
 }
-val artifactProjectName = rootProject.name.toArtifactNameSegment("android_app")
-val artifactVersionName = resolvedVersionName.toArtifactNameSegment("unknown")
-// UTC keeps artifact names unambiguous across local machines and GitHub-hosted runners.
-val artifactTimestampUtc = DateTimeFormatter
-    .ofPattern("yyyyMMdd_HHmmss")
-    .withZone(ZoneOffset.UTC)
-    .format(Instant.now())
-val googleReleaseAabName =
-    "${artifactProjectName}_google_release_v${artifactVersionName}_${artifactTimestampUtc}_UTC.aab"
-val releaseMinifyEnabled = booleanGradleProperty("android.release.minifyEnabled", true)
-val releaseShrinkResourcesEnabled = booleanGradleProperty("android.release.shrinkResourcesEnabled", false)
-val releaseOptimizeEnabled = booleanGradleProperty("android.release.optimizeEnabled", releaseMinifyEnabled)
-val releaseDefaultProguardFile = if (releaseMinifyEnabled && releaseOptimizeEnabled) {
-    "proguard-android-optimize.txt"
-} else {
-    "proguard-android.txt"
-}
-val fallbackApplicationId = appConfig.stringValue("applicationId", "com.example.lcb.app")
-val googleApplicationId = googleServicesPackageName("google") ?: fallbackApplicationId
-val localApplicationId = googleServicesPackageName("local") ?: fallbackApplicationId
 
 android {
-    namespace = "com.amberwave.player"
+    namespace = "com.streamplay.music"
     compileSdk = 36
 
     defaultConfig {
-        minSdk = appConfig.intValue("minSdk", 26)
-        targetSdk = appConfig.intValue("targetSdk", 35)
+        minSdk = app.number("minSdk", 26)
+        targetSdk = app.number("targetSdk", 35)
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
 
-        val defaultChannel = analyticsConfig.stringValue("defaultUserChannel", "default")
-        buildConfigField("String", "DEFAULT_USER_CHANNEL", "\"$defaultChannel\"")
+        buildConfigField("String", "USER_CHANNEL_DEFAULT", analytics.text("defaultUserChannel", "default").asBuildConfigLiteral())
         buildConfigField(
             "String",
-            "MUSIC_JAMENDO_CLIENT_IDS",
-            buildConfigString(musicCredential("MUSIC_JAMENDO_CLIENT_IDS", builtInMusicJamendoClientIds)),
+            "SOURCE_JAMENDO_IDS",
+            sourceCredential("MUSIC_JAMENDO_CLIENT_IDS", SourceDefaults.JAMENDO_CLIENT_IDS).asBuildConfigLiteral(),
         )
         buildConfigField(
             "String",
-            "MUSIC_AUDIUS_API_KEYS",
-            buildConfigString(musicCredential("MUSIC_AUDIUS_API_KEYS", builtInMusicAudiusApiKeys)),
+            "SOURCE_AUDIUS_KEYS",
+            sourceCredential("MUSIC_AUDIUS_API_KEYS", SourceDefaults.AUDIUS_API_KEYS).asBuildConfigLiteral(),
         )
         buildConfigField(
             "String",
-            "MUSIC_AUDIUS_BEARER_TOKENS",
-            buildConfigString(musicCredential("MUSIC_AUDIUS_BEARER_TOKENS", builtInMusicAudiusBearerTokens)),
+            "SOURCE_AUDIUS_TOKENS",
+            sourceCredential("MUSIC_AUDIUS_BEARER_TOKENS", SourceDefaults.AUDIUS_BEARER_TOKENS).asBuildConfigLiteral(),
         )
-        buildConfigField("String", "PRIVACY_POLICY_URL", buildConfigString(legalConfig.stringValue("privacyPolicyUrl")))
-        buildConfigField("String", "TERMS_OF_SERVICE_URL", buildConfigString(legalConfig.stringValue("termsOfServiceUrl")))
-
+        buildConfigField("String", "LEGAL_PRIVACY_URL", legal.text("privacyPolicyUrl").asBuildConfigLiteral())
+        buildConfigField("String", "LEGAL_TERMS_URL", legal.text("termsOfServiceUrl").asBuildConfigLiteral())
     }
 
     flavorDimensions += "channel"
-
     productFlavors {
-        create("google") {
+        register("google") {
             dimension = "channel"
-            applicationId = googleApplicationId
-            versionCode = appConfig.intValue("versionCode", 1)
-            versionName = resolvedVersionName
+            applicationId = firebasePackage("google") ?: fallbackPackage
+            versionCode = appVersionCode
+            versionName = appVersionName
         }
-
-        create("local") {
+        register("local") {
             dimension = "channel"
-            applicationId = localApplicationId
-            versionCode = appConfig.intValue("versionCode", 1)
-            versionName = "$resolvedVersionName-local"
+            applicationId = firebasePackage("local") ?: fallbackPackage
+            versionCode = appVersionCode
+            versionName = "$appVersionName-local"
             isDefault = true
         }
     }
 
     signingConfigs {
-        create("googleRelease") {
-            if (hasGoogleReleaseSigning) {
-                storeFile = googleReleaseKeystoreFile
-                storePassword = googleReleaseStorePassword
-                keyAlias = googleReleaseKeyAlias
-                keyPassword = googleReleaseKeyPassword
+        register("googleRelease") {
+            if (releaseSigningReady) {
+                storeFile = releaseKeystore
+                storePassword = releaseStorePassword
+                keyAlias = releaseKeyAlias
+                keyPassword = releaseKeyPassword
             }
         }
     }
 
     buildTypes {
         debug {
-            isShrinkResources = false
             versionNameSuffix = "-debug"
         }
         release {
-            isMinifyEnabled = releaseMinifyEnabled
-            isShrinkResources = releaseMinifyEnabled && releaseShrinkResourcesEnabled
-            if (hasGoogleReleaseSigning || requiresGoogleReleaseSigning) {
-                signingConfig = signingConfigs.getByName("googleRelease")
-            }
-            if (requiresGoogleReleaseSigning && !hasGoogleReleaseSigning) {
+            if (buildsSignedRelease && !releaseSigningReady) {
                 throw GradleException(
-                    "Missing google release signing config. Ensure app/src/google/google-release.keystore exists or set " +
-                        "ANDROID_SIGNING_STORE_FILE, ANDROID_SIGNING_STORE_PASSWORD, ANDROID_SIGNING_KEY_ALIAS, " +
-                        "and ANDROID_SIGNING_KEY_PASSWORD."
+                    "Google release signing is not configured. Provide app/src/google/google-release.keystore or the " +
+                        "ANDROID_SIGNING_STORE_FILE / _STORE_PASSWORD / _KEY_ALIAS / _KEY_PASSWORD variables.",
                 )
             }
+            if (releaseSigningReady || buildsSignedRelease) {
+                signingConfig = signingConfigs.getByName("googleRelease")
+            }
+            isMinifyEnabled = minifyRelease
+            isShrinkResources = minifyRelease && shrinkReleaseResources
             proguardFiles(
-                getDefaultProguardFile(releaseDefaultProguardFile),
-                "proguard-rules.pro"
+                getDefaultProguardFile(
+                    if (minifyRelease && optimizeRelease) "proguard-android-optimize.txt" else "proguard-android.txt",
+                ),
+                "proguard-rules.pro",
             )
         }
     }
 
     buildFeatures {
-        viewBinding = true
+        compose = true
         buildConfig = true
     }
 
@@ -243,66 +213,76 @@ android {
             )
         }
     }
-}
 
-tasks.register("printGoogleReleaseVersionName") {
-    group = "help"
-    description = "Prints the versionName used for google release builds."
-    doLast {
-        println(resolvedVersionName)
+    testOptions {
+        unitTests.isReturnDefaultValues = true
     }
 }
 
-tasks.register("printGoogleReleaseAabName") {
-    group = "help"
-    description = "Prints the expected output file name for google release AAB builds."
-    doLast {
-        println(googleReleaseAabName)
-    }
+room {
+    // Exported schemas are versioned so future AutoMigrations are verified at compile time.
+    schemaDirectory("$projectDir/schemas")
 }
 
 configurations.configureEach {
     exclude(group = "com.google.firebase", module = "protolite-well-known-types")
 }
 
-// Room schema 纳入版本控制，升级数据库版本时由编译器校验 AutoMigration。
-room {
-    schemaDirectory("$projectDir/schemas")
+tasks.register("printGoogleReleaseVersionName") {
+    group = "help"
+    description = "Prints the versionName used for google release builds."
+    doLast { println(appVersionName) }
+}
+
+tasks.register("printGoogleReleaseAabName") {
+    group = "help"
+    description = "Prints the expected output file name for google release AAB builds."
+    doLast { println(bundleFileName) }
 }
 
 dependencies {
+    implementation(project(":music-source"))
+    implementation(libs.remax.core)
+
+    // Platform
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.recyclerview)
-    implementation(libs.androidx.fragment.ktx)
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.navigation.compose)
+
+    // Jetpack Compose + Material 3
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material.icons.extended)
+    debugImplementation(libs.androidx.compose.ui.tooling)
+
+    // Media, storage, images
     implementation(libs.androidx.media3.exoplayer)
     implementation(libs.androidx.media3.session)
     implementation(libs.bundles.room)
     ksp(libs.room.compiler)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
+    implementation(libs.coil.compose)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.serialization.json)
+
+    // Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.config)
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.crashlytics)
-    implementation(libs.gson)
-    implementation(libs.glide)
-    implementation("androidx.cardview:cardview:1.0.0")
 
     testImplementation(libs.junit)
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.1")
+    testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation("androidx.room:room-testing:2.8.4")
-
-//    implementation(project(":core"))
-    implementation(project(":catalog-sdk"))
-    implementation("com.github.toukaremax:core:1.0.15")
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
 }

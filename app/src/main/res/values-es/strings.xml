@@ -145,7 +145,7 @@
     <item quantity="other">%d carpetas</item>
   </plurals>
   <string name="local_music_permission_title">Accede a tu música</string>
-  <string name="local_music_permission_message">Permite que LocalPure busque y reproduzca los archivos de audio guardados en este dispositivo.</string>
+  <string name="local_music_permission_message">Permite que Music Stream Play Launcher busque y reproduzca los archivos de audio guardados en este dispositivo.</string>
   <string name="local_music_allow_access">Permitir acceso</string>
   <string name="local_music_open_settings">Abrir ajustes</string>
   <string name="local_music_empty_title">No se encontró música local</string>
@@ -158,7 +158,7 @@
   <string name="home_section_most_played">Más reproducidas</string>
   <string name="home_section_my_playlist">Mi lista</string>
   <string name="home_section_recently_played">Reproducidas recientemente</string>
-  <string name="home_section_more">Más ›</string>
+  <string name="home_section_more">Más</string>
   <string name="home_play_all">Reproducir todo</string>
   <string name="home_add_new_playlist">Añadir nueva lista</string>
   <string name="home_favorite_songs">Mis canciones favoritas</string>

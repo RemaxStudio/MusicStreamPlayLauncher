@@ -48,5 +48,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MusicStreamPlayLauncher"
 include(":app")
-//include(":core")
-include(":catalog-sdk")
+include(":music-source")

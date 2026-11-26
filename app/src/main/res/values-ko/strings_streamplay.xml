@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="playlist_name_taken">같은 이름의 플레이리스트가 이미 있습니다</string>
+    <string name="playlist_add_failed">이 플레이리스트에 곡을 추가할 수 없습니다</string>
+    <string name="playlist_update_failed">플레이리스트를 업데이트할 수 없습니다. 다시 시도하세요.</string>
+</resources>

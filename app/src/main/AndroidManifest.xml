@@ -6,6 +6,7 @@
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
+    <!-- Only Android 9 and lower need write access to remove a device audio file. -->
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
@@ -13,7 +14,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 
     <application
-        android:name=".AmberPlayerApp"
+        android:name=".StreamPlayApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -22,26 +23,20 @@
         android:localeConfig="@xml/locales_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LocalPure">
+        android:theme="@style/Theme.StreamPlay">
+
         <activity
-            android:name=".HostActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
-            <!-- Launcher SDK 移除后，由 HostActivity 直接作为系统默认启动入口。 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".feature.actions.DeleteAudioActivity"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:theme="@style/Theme.LocalPure.Transparent" />
 
-        <!-- Android 12 及以下由 AppCompat 自动持久化应用语言；Android 13+ 同步系统 LocaleManager。 -->
+        <!-- Persists the per-app language on Android 12 and lower; Android 13+ uses LocaleManager. -->
         <service
             android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
             android:enabled="false"
@@ -52,7 +47,7 @@
         </service>
 
         <service
-            android:name=".feature.nowplaying.AudioPlaybackService"
+            android:name=".playback.StreamPlaybackService"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback">
             <intent-filter>

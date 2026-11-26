@@ -135,7 +135,7 @@
     <item quantity="other">%d thư mục</item>
   </plurals>
   <string name="local_music_permission_title">Truy cập nhạc của bạn</string>
-  <string name="local_music_permission_message">Cho phép LocalPure tìm và phát các tệp âm thanh lưu trên thiết bị này.</string>
+  <string name="local_music_permission_message">Cho phép Music Stream Play Launcher tìm và phát các tệp âm thanh lưu trên thiết bị này.</string>
   <string name="local_music_allow_access">Cho phép truy cập</string>
   <string name="local_music_open_settings">Mở cài đặt</string>
   <string name="local_music_empty_title">Không tìm thấy nhạc cục bộ</string>
@@ -148,7 +148,7 @@
   <string name="home_section_most_played">Được phát nhiều nhất</string>
   <string name="home_section_my_playlist">Danh sách phát của tôi</string>
   <string name="home_section_recently_played">Đã phát gần đây</string>
-  <string name="home_section_more">Thêm ›</string>
+  <string name="home_section_more">Thêm</string>
   <string name="home_play_all">Phát tất cả</string>
   <string name="home_add_new_playlist">Thêm danh sách phát mới</string>
   <string name="home_favorite_songs">Bài hát yêu thích của tôi</string>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="playlist_name_taken">Es gibt bereits eine Playlist mit diesem Namen</string>
+    <string name="playlist_add_failed">Der Song konnte nicht zu dieser Playlist hinzugefügt werden</string>
+    <string name="playlist_update_failed">Diese Playlist konnte nicht aktualisiert werden. Versuche es erneut.</string>
+</resources>
