@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sleep timer single-choice sheet; same anatomy as the language picker. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sleepTimerRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_choice_picker_sheet"
+    android:orientation="vertical"
+    android:paddingBottom="16dp">
+
+    <include layout="@layout/sheet_handle" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        android:accessibilityHeading="true"
+        android:text="@string/sleep_timer_title"
+        android:textAppearance="@style/TextAppearance.LocalPure.Title.Large" />
+
+    <TextView
+        android:id="@+id/sleepTimerSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/TextAppearance.LocalPure.Body.Small"
+        tools:text="@string/sleep_timer_subtitle" />
+
+    <LinearLayout
+        android:id="@+id/sleepTimerOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="18dp" />
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mini player (pen kbmcn): dark base, warm horizontal tint, champagne hairline, 26dp corners. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/lp_mini_player_base" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="0"
+                android:endColor="@color/lp_mini_player_tint_end"
+                android:startColor="@color/lp_mini_player_tint" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/lp_mini_player_border" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+</layer-list>

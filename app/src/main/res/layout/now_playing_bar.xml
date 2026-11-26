@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shared mini player (pen kbmcn). Host layouts size it 72dp tall with 12dp side margins. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:background="@drawable/bg_hub_mini_player"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="@drawable/fg_home_mini_player_ripple"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="8dp"
+    android:paddingEnd="6dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/cover"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:background="@color/lp_cover_placeholder"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.LocalPure.Full" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="4dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/Widget.LocalPure.TrackTitle"
+            android:textColor="@color/lp_accent"
+            tools:text="Throw Aggi Off the Bridge" />
+
+        <TextView
+            android:id="@+id/artist"
+            style="@style/Widget.LocalPure.TrackArtist"
+            android:layout_marginTop="5dp"
+            android:textSize="13.5sp"
+            tools:text="Black Tambourine" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/playPause"
+        style="@style/Widget.LocalPure.ImageButton"
+        android:padding="4dp"
+        android:contentDescription="@string/home_pause"
+        android:src="@drawable/ic_lp_pause_ring" />
+
+    <ImageButton
+        android:id="@+id/queue"
+        style="@style/Widget.LocalPure.ImageButton"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/home_queue"
+        android:src="@drawable/ic_lp_queue_music" />
+</LinearLayout>

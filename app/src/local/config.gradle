@@ -1,0 +1,70 @@
+ext {
+    // AdMob配置
+    admob = [applicationId: "ca-app-pub-3916046151571724~4816008368", // 测试应用ID，请替换为实际的AdMob应用ID
+             adUnitIds    : [banner      : "ca-app-pub-3940256099942544/9214589741",        // 横幅广告测试ID
+                             interstitial: "ca-app-pub-3916046151571724/2959404748", // 插页广告测试ID
+                             splash      : "ca-app-pub-3916046151571724/4252438564",       // 开屏广告测试ID
+                             native      : "ca-app-pub-3916046151571724/6199945055",        // 原生广告测试ID
+                             full_native : "ca-app-pub-3916046151571724/5393996392",        // 全屏原生广告测试ID
+                             rewarded    : "ca-app-pub-3916046151571724/6447357068"         // 激励广告测试ID
+             ]]
+
+    // Google Ad Manager 配置（官方测试 ID）
+    gam = [adUnitIds: [banner      : "/21775744923/example/adaptive-banner",
+                       interstitial: "/21775744923/example/interstitial",
+                       splash      : "/21775744923/example/app-open",
+                       native      : "/21775744923/example/native",
+                       full_native : "/21775744923/example/native",
+                       rewarded    : "/21775744923/example/rewarded"
+    ]]
+
+    // Pangle配置
+    pangle = [applicationId: "8801991", // Pangle测试应用ID
+              adUnitIds    : [splash      : "890000078",        // 开屏广告测试ID（竖屏）
+                              banner      : "980099802",        // 横幅广告测试ID（320x50）
+                              interstitial: "982960068",       // 插页广告测试ID（竖屏）
+                              native      : "982960055",        // 原生广告测试ID
+                              full_native : "982960136",        // 全屏原生广告测试ID
+                              rewarded    : "982960054"         // 激励视频测试ID（竖屏）
+              ]]
+
+    // TopOn配置
+    topon = [applicationId: "h1h7t76tddrt25",           // TopOn 应用 ID（需替换为实际值）
+             appKey       : "a5892462779e07420fcf84e9e6b341ece",          // TopOn 应用密钥（需替换为实际值）
+             adUnitIds    : [interstitial: "n1h7t76tg76hja",  // 插页广告位 ID（需替换为实际值）
+                             rewarded    : "b5b449fb3d89d7",  // 激励广告位 ID
+                             native      : "n1h7t76th560qm",  // 原生广告位 ID（需替换为实际值）
+                             splash      : "n1h7t76tevmst6",  // 开屏广告位 ID（需替换为实际值）
+                             full_native : "n1h7t76ti6r9cp",  // 全屏原生广告位 ID（需替换为实际值）
+                             banner      : "b5baca4f74c3d8"]  // 横幅广告位 ID（需替换为实际值）
+    ]
+
+    // MAX (AppLovin) 配置
+    max = [sdkKey   : "05TMDQ5tZabpXQ45_UTbmEGNUtVAzSTzT6KmWQc5_CuWdzccS4DCITZoL3yIWUG3bbq60QC_d4WF28tUC4gVTF",  // Demo SDK Key（测试用）
+           adUnitIds: [splash      : "YOUR_SPLASH_AD_UNIT_ID",      // 开屏广告位 ID
+                       banner      : "YOUR_BANNER_AD_UNIT_ID",      // 横幅广告位 ID
+                       interstitial: "YOUR_INTERSTITIAL_AD_UNIT_ID",// 插页广告位 ID
+                       native      : "YOUR_NATIVE_AD_UNIT_ID",      // 原生广告位 ID
+                       fullNative  : "YOUR_FULL_NATIVE_AD_UNIT_ID", // 全屏原生广告位 ID
+                       rewarded    : "YOUR_REWARDED_AD_UNIT_ID"]    // 激励广告位 ID
+    ]
+
+    // 应用版本配置
+    app = [applicationId: "com.leafmotivation.quizguessoncolor",
+           compileSdk   : 35,
+           minSdk       : 26,
+           targetSdk    : 35,
+           versionCode  : 1,
+           versionName  : "1.0.0"]
+
+    // 设置页法律链接集中配置，业务层不会硬编码站点地址。
+    legal = [privacyPolicyUrl : "https://metazymorphism.com/privacy.html",
+             termsOfServiceUrl: "https://metazymorphism.com/TermsOfUse.html"]
+
+
+    // 统计归因配置
+    analytics = [adjustAppToken: "hopjs50gmuww",           // Adjust App Token
+                 thinkingDataAppId: "871c0ebde6be4329b9b74acb3f08ba36",   // 数数 SDK APP ID
+                 thinkingDataServerUrl: "https://ds.devs343.com",     // 数数上报域名
+                 defaultUserChannel: "paid"]                           // 默认用户渠道，internal默认paid
+}

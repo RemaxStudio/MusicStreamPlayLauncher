@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App language single-choice sheet (pen IWOFG). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/languageSheetRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_choice_picker_sheet"
+    android:orientation="vertical"
+    android:paddingBottom="12dp">
+
+    <include layout="@layout/sheet_handle" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        android:accessibilityHeading="true"
+        android:text="@string/language_picker_title"
+        android:textAppearance="@style/TextAppearance.LocalPure.Title.Large" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/language_picker_subtitle"
+        android:textAppearance="@style/TextAppearance.LocalPure.Body.Small" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/languageList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:clipToPadding="false"
+        android:overScrollMode="ifContentScrolls"
+        android:paddingHorizontal="18dp"
+        android:paddingBottom="4dp"
+        tools:itemCount="6"
+        tools:listitem="@layout/choice_option_row" />
+</LinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Loading placeholder with the same geometry as one recommended page (4 rows + indicator). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:importantForAccessibility="noHideDescendants"
+    android:orientation="vertical"
+    android:paddingBottom="32dp">
+
+    <include layout="@layout/skeleton_track_row" />
+
+    <include layout="@layout/skeleton_track_row" />
+
+    <include layout="@layout/skeleton_track_row" />
+
+    <include layout="@layout/skeleton_track_row" />
+</LinearLayout>

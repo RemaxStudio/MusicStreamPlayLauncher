@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "930874729472",
+    "project_id": "ag442bc65780-ec4c4-gp",
+    "storage_bucket": "ag442bc65780-ec4c4-gp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930874729472:android:86b89c6054b1aa997a24e5",
+        "android_client_info": {
+          "package_name": "com.sonicpure.local.audio.tool"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbI4r48Uw_8VIzrcSCCffmhwoeoVygrRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

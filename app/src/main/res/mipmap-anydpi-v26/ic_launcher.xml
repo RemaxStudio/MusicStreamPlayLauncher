@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Adaptive launcher icon. The layer is the full-bleed (square-corner) logo: the launcher applies its
+    own mask (circle / rounded square), so the artwork must not carry rounded corners itself.
+    Logo occupies the central 76dp of the 108dp layer; the ring outside is a mirrored, blurred
+    continuation of its edges so launcher zoom/parallax never reveals a seam.
+-->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@mipmap/ic_launcher_layer" />
+    <foreground android:drawable="@android:color/transparent" />
+</adaptive-icon>

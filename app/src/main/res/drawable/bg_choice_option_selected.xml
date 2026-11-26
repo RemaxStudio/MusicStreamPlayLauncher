@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Selected language (pen IWOFG): translucent fill + accent hairline, 12dp, inset 5dp vertically. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/lp_overlay_pressed">
+    <item
+        android:bottom="5dp"
+        android:top="5dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/lp_overlay_fill" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/lp_accent" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+</ripple>

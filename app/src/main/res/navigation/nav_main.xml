@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Single-activity navigation graph. Destinations are reached through Router only. -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/dest_home">
+
+    <fragment
+        android:id="@+id/dest_home"
+        android:name="com.amberwave.player.feature.hub.HubFragment"
+        android:label="@string/home_brand" />
+
+    <fragment
+        android:id="@+id/dest_player"
+        android:name="com.amberwave.player.feature.nowplaying.NowPlayingFragment"
+        android:label="@string/home_playing" />
+
+    <fragment
+        android:id="@+id/dest_search"
+        android:name="com.amberwave.player.feature.search.SearchFragment"
+        android:label="@string/home_search" />
+
+    <fragment
+        android:id="@+id/dest_recommended"
+        android:name="com.amberwave.player.feature.discover.DiscoverFragment"
+        android:label="@string/recommended_title" />
+
+    <fragment
+        android:id="@+id/dest_artist"
+        android:name="com.amberwave.player.feature.creator.CreatorFragment"
+        android:label="@string/artist_title" />
+
+    <fragment
+        android:id="@+id/dest_playlist"
+        android:name="com.amberwave.player.feature.collection.CollectionFragment"
+        android:label="@string/playlist_favorites_title" />
+
+    <fragment
+        android:id="@+id/dest_local_music"
+        android:name="com.amberwave.player.feature.device.DeviceLibraryFragment"
+        android:label="@string/local_music_title" />
+
+    <fragment
+        android:id="@+id/dest_settings"
+        android:name="com.amberwave.player.feature.settings.SettingsFragment"
+        android:label="@string/settings_title" />
+</navigation>

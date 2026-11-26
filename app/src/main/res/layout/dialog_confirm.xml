@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confirmation dialog body (pen f1p7p): title, explanation, equal-width Cancel / confirm pills. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="22dp"
+    android:paddingTop="26dp"
+    android:paddingBottom="22dp">
+
+    <TextView
+        android:id="@+id/confirmTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityHeading="true"
+        android:textAppearance="@style/TextAppearance.LocalPure.Title.Dialog"
+        tools:text="Delete this playlist?" />
+
+    <TextView
+        android:id="@+id/confirmMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textAppearance="@style/TextAppearance.LocalPure.Body.Large"
+        android:textColor="@color/lp_on_surface_variant"
+        tools:text="“Night drive” and its playlist data will be deleted. Songs in other playlists will remain." />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/confirmCancel"
+            style="@style/Widget.LocalPure.Button.Tonal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/playlist_cancel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/confirmAction"
+            style="@style/Widget.LocalPure.Button.Destructive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1.18"
+            android:maxLines="1"
+            android:paddingHorizontal="12dp"
+            tools:text="Delete playlist" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lower scrim on the artist banner (pen "Hero lower scrim"), clipped to its bottom corners. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:endColor="#59000000"
+        android:startColor="#00000000" />
+    <corners
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp" />
+</shape>

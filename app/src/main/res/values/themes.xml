@@ -1,0 +1,157 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--
+        LocalPure is a dark, immersive player: the design (MusicPlayerFlowLauncher.pen) only defines
+        a dark palette, so the app theme is Material 3 Dark rather than DayNight. All screens draw
+        edge-to-edge via enableEdgeToEdge(); bars stay transparent with light icons.
+    -->
+    <style name="Base.Theme.LocalPure" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Color roles -->
+        <item name="colorPrimary">@color/lp_accent</item>
+        <item name="colorOnPrimary">@color/lp_on_accent</item>
+        <item name="colorPrimaryContainer">@color/lp_accent_container</item>
+        <item name="colorOnPrimaryContainer">@color/lp_accent</item>
+        <item name="colorPrimaryInverse">@color/lp_on_accent</item>
+        <item name="colorSecondary">@color/lp_link</item>
+        <item name="colorOnSecondary">@color/lp_on_accent</item>
+        <item name="colorSecondaryContainer">@color/lp_overlay_fill</item>
+        <item name="colorOnSecondaryContainer">@color/lp_on_surface</item>
+        <item name="colorTertiary">@color/lp_link</item>
+        <item name="colorOnTertiary">@color/lp_on_accent</item>
+        <item name="colorError">@color/lp_error</item>
+        <item name="colorOnError">@color/lp_on_error</item>
+        <item name="android:colorBackground">@color/lp_background</item>
+        <item name="colorOnBackground">@color/lp_on_surface</item>
+        <item name="colorSurface">@color/lp_surface</item>
+        <item name="colorOnSurface">@color/lp_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/lp_on_surface_variant</item>
+        <item name="colorSurfaceVariant">@color/lp_surface_container_high</item>
+        <item name="colorSurfaceContainerLowest">@color/lp_background</item>
+        <item name="colorSurfaceContainerLow">@color/lp_surface</item>
+        <item name="colorSurfaceContainer">@color/lp_surface</item>
+        <item name="colorSurfaceContainerHigh">@color/lp_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/lp_surface_container_highest</item>
+        <item name="colorSurfaceInverse">@color/lp_on_surface</item>
+        <item name="colorOnSurfaceInverse">@color/lp_background</item>
+        <item name="colorOutline">@color/lp_header_button_stroke</item>
+        <item name="colorOutlineVariant">@color/lp_overlay_stroke</item>
+        <!-- Surfaces use explicit tokens; no amber elevation tint on dialogs, menus or cards. -->
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="colorControlNormal">@color/lp_icon</item>
+        <item name="colorControlHighlight">@color/lp_overlay_pressed</item>
+        <item name="android:textColorPrimary">@color/lp_on_surface</item>
+        <item name="android:textColorSecondary">@color/lp_on_surface_variant</item>
+        <item name="android:textColorHint">@color/lp_on_surface_variant</item>
+        <item name="android:textColorHighlight">@color/lp_accent_container</item>
+        <item name="android:colorAccent">@color/lp_accent</item>
+
+        <!-- Window -->
+        <item name="android:windowBackground">@color/lp_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="29">false</item>
+        <item name="android:enforceStatusBarContrast" tools:targetApi="29">false</item>
+
+        <!-- Shapes -->
+        <item name="shapeAppearanceCornerSmall">@style/ShapeAppearance.LocalPure.Small</item>
+        <item name="shapeAppearanceCornerMedium">@style/ShapeAppearance.LocalPure.Medium</item>
+        <item name="shapeAppearanceCornerLarge">@style/ShapeAppearance.LocalPure.Large</item>
+        <item name="shapeAppearanceCornerExtraLarge">@style/ShapeAppearance.LocalPure.ExtraLarge</item>
+
+        <!-- Type: Inter everywhere -->
+        <item name="android:textViewStyle">@style/Widget.LocalPure.TextView</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.LocalPure.Headline</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.LocalPure.Title.Large</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.LocalPure.Title.Medium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.LocalPure.Title.Small</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.LocalPure.Body.Large</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.LocalPure.Body.Medium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.LocalPure.Body.Small</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.LocalPure.Label.Large</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.LocalPure.Label.Medium</item>
+
+        <!-- Components -->
+        <item name="materialButtonStyle">@style/Widget.LocalPure.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.LocalPure.Button.Tonal</item>
+        <item name="borderlessButtonStyle">@style/Widget.LocalPure.Button.Text</item>
+        <item name="toolbarStyle">@style/Widget.LocalPure.Toolbar</item>
+        <item name="checkboxStyle">@style/Widget.LocalPure.CheckBox</item>
+        <item name="radioButtonStyle">@style/Widget.LocalPure.RadioButton</item>
+        <item name="chipStyle">@style/Widget.LocalPure.Chip.Filter</item>
+        <item name="textInputStyle">@style/Widget.LocalPure.TextInputLayout</item>
+        <item name="circularProgressIndicatorStyle">@style/Widget.LocalPure.CircularProgressIndicator</item>
+        <item name="snackbarStyle">@style/Widget.LocalPure.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/Widget.LocalPure.Snackbar.TextView</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.LocalPure.BottomSheetDialog</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.LocalPure.MaterialAlertDialog</item>
+        <item name="popupMenuStyle">@style/Widget.LocalPure.PopupMenu</item>
+        <item name="android:popupMenuStyle">@style/Widget.LocalPure.PopupMenu</item>
+        <item name="popupMenuBackground">@drawable/bg_lp_popup</item>
+        <item name="actionOverflowMenuStyle">@style/Widget.LocalPure.PopupMenu.Overflow</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.LocalPure.Body.Large</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.LocalPure.Body.Large</item>
+    </style>
+
+    <style name="Theme.LocalPure" parent="Base.Theme.LocalPure" />
+
+    <!-- Settings shares the app theme; the page itself has no atmosphere glow. -->
+    <style name="Theme.LocalPure.Settings" parent="Theme.LocalPure" />
+
+    <!-- 仅承载系统删除授权/旧系统确认框，不创建可见页面，底层歌曲列表保持连续。 -->
+    <style name="Theme.LocalPure.Transparent" parent="Theme.LocalPure">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <!-- Modal bottom sheets: 26dp top corners, drag handle, scrim from the design. -->
+    <style name="ThemeOverlay.LocalPure.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.LocalPure.BottomSheet.Modal</item>
+        <item name="bottomSheetDragHandleStyle">@style/Widget.LocalPure.BottomSheet.DragHandle</item>
+        <item name="android:backgroundDimAmount">0.56</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
+        <item name="enableEdgeToEdge">true</item>
+    </style>
+
+    <style name="Widget.LocalPure.BottomSheet.Modal" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">@color/lp_surface</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.LocalPure.Sheet</item>
+        <item name="android:elevation">0dp</item>
+        <item name="paddingBottomSystemWindowInsets">false</item>
+    </style>
+
+    <style name="Widget.LocalPure.BottomSheet.DragHandle" parent="Widget.Material3.BottomSheet.DragHandle">
+        <item name="tint">@color/lp_sheet_handle</item>
+    </style>
+
+    <!-- Alert dialogs (e.g. delete playlist): 24dp surface, pill buttons laid out by the layout. -->
+    <style name="ThemeOverlay.LocalPure.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="alertDialogStyle">@style/MaterialAlertDialog.LocalPure</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.LocalPure.Title</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MaterialAlertDialog.LocalPure.Body</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.LocalPure.Button.Dialog</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.LocalPure.Button.Dialog</item>
+        <item name="android:backgroundDimAmount">0.7</item>
+    </style>
+
+    <style name="MaterialAlertDialog.LocalPure" parent="MaterialAlertDialog.Material3">
+        <item name="backgroundTint">@color/lp_surface</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.LocalPure.Dialog</item>
+        <item name="backgroundInsetStart">28dp</item>
+        <item name="backgroundInsetEnd">28dp</item>
+    </style>
+
+    <style name="MaterialAlertDialog.LocalPure.Title" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.Title.Dialog</item>
+        <item name="android:textColor">@color/lp_on_surface</item>
+    </style>
+
+    <style name="MaterialAlertDialog.LocalPure.Body" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.Body.Large</item>
+        <item name="android:textColor">@color/lp_on_surface_variant</item>
+    </style>
+</resources>

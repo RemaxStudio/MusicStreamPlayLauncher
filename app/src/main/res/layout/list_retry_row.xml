@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/message"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_query_result_ripple"
+    android:clickable="true"
+    android:ellipsize="end"
+    android:focusable="true"
+    android:gravity="center"
+    android:maxLines="2"
+    android:minHeight="56dp"
+    android:paddingHorizontal="24dp"
+    android:textAppearance="@style/TextAppearance.LocalPure.Body.Small" />

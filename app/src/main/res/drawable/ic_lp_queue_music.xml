@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Up next" queue glyph: three list lines and a music note, matching the mini player icon. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:autoMirrored="true"
+    android:tint="?attr/colorControlNormal"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M3.5,5.5H18M3.5,10.5H13.5M3.5,15.5H10M3.5,20.5H10"
+        android:strokeWidth="1.7"
+        android:strokeColor="@android:color/white"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M17.25,20.25m-2.25,0a2.25,2.25 0,1 1,4.5 0a2.25,2.25 0,1 1,-4.5 0M19.5,20.25V10.5L22,11.75"
+        android:strokeWidth="1.7"
+        android:strokeColor="@android:color/white"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

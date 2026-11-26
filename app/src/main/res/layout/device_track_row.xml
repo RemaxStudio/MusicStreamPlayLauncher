@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Device track row (pen BNbfa): 48dp cover, title / artist, duration, overflow. -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_query_result_ripple"
+    android:clickable="true"
+    android:focusable="true"
+    android:minHeight="72dp"
+    android:paddingStart="18dp"
+    android:paddingEnd="6dp">
+
+    <com.amberwave.player.core.ui.CoverArtView
+        android:id="@+id/cover"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_lp_cover"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/Widget.LocalPure.TrackTitle"
+        android:layout_width="0dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/selector_track_title"
+        app:layout_constraintBottom_toTopOf="@id/metadata"
+        app:layout_constraintEnd_toStartOf="@id/duration"
+        app:layout_constraintStart_toEndOf="@id/cover"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Fred From Jupiter" />
+
+    <TextView
+        android:id="@+id/metadata"
+        style="@style/Widget.LocalPure.TrackArtist"
+        android:layout_width="0dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/selector_track_artist"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/duration"
+        app:layout_constraintStart_toEndOf="@id/cover"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="Digette" />
+
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.LocalPure.Numeric"
+        android:textColor="@color/lp_on_surface_variant"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/more"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2:32" />
+
+    <ImageButton
+        android:id="@+id/more"
+        style="@style/Widget.LocalPure.ImageButton"
+        android:contentDescription="@string/home_more"
+        android:src="@drawable/ic_lp_more_horiz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

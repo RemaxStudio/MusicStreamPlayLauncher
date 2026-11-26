@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Loading placeholder matching the "Most played" featured + two compact rows composition. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:importantForAccessibility="noHideDescendants"
+    android:orientation="horizontal"
+    android:paddingStart="18dp"
+    android:paddingEnd="18dp"
+    android:paddingBottom="16dp">
+
+    <include layout="@layout/skeleton_feature_card" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <include layout="@layout/skeleton_compact_row" />
+
+        <include layout="@layout/skeleton_compact_row" />
+    </LinearLayout>
+</LinearLayout>

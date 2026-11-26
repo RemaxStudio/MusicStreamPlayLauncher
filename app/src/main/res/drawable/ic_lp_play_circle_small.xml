@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Most played" overlay play affordance: 30dp translucent disc with hairline ring. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="30dp"
+    android:height="30dp"
+    android:autoMirrored="true"
+    android:viewportWidth="30"
+    android:viewportHeight="30">
+    <path
+        android:fillColor="#1BFFFFFF"
+        android:pathData="M15,0.5a14.5,14.5 0,1 1,0 29a14.5,14.5 0,1 1,0 -29z"
+        android:strokeWidth="1"
+        android:strokeColor="#42FFFFFF" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M12,10.35C12,9.6 12.81,9.13 13.46,9.51L20.18,13.36C20.84,13.74 20.84,14.69 20.18,15.07L13.46,18.92C12.81,19.3 12,18.83 12,18.08Z" />
+</vector>

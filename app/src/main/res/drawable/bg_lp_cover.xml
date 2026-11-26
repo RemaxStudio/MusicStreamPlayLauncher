@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Default rounded artwork clip for 48dp track covers; the ImageView is clipped to this outline. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/lp_cover_placeholder" />
+    <corners android:radius="10dp" />
+</shape>

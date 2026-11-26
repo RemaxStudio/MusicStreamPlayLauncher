@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Section titles are announced as headings by TalkBack (API 28+). -->
+    <style name="Widget.LocalPure.SectionTitle" parent="Base.Widget.LocalPure.SectionTitle">
+        <item name="android:accessibilityHeading">true</item>
+    </style>
+</resources>

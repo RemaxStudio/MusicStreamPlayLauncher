@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    LocalPure amber palette. Values mirror the variables in MusicPlayerFlowLauncher.pen
+    (pen uses #RRGGBBAA; Android uses #AARRGGBB, translucent values below are converted).
+    Layouts and drawables must reference these tokens or theme attributes, never raw hex.
+-->
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Base surfaces -->
+    <color name="lp_background">#FF101014</color>
+    <color name="lp_surface">#FF211E23</color>
+    <color name="lp_surface_container_high">#FF27252A</color>
+    <color name="lp_surface_container_highest">#FF323037</color>
+
+    <!-- Content -->
+    <color name="lp_on_surface">#FFF7F3FB</color>
+    <color name="lp_on_surface_variant">#FFBDB7B2</color>
+    <color name="lp_on_surface_disabled">#61F7F3FB</color>
+    <color name="lp_icon">#FFFFFFFF</color>
+
+    <!-- Accent -->
+    <color name="lp_accent">#FFFFBF66</color>
+    <color name="lp_on_accent">#FF24180F</color>
+    <color name="lp_accent_container">#24FFBF66</color>
+    <color name="lp_accent_tint_surface">#15FFBF66</color>
+    <color name="lp_link">#FFEBC58D</color>
+
+    <!-- Status -->
+    <color name="lp_error">#FFFF7785</color>
+    <color name="lp_on_error">#FF2B0A10</color>
+    <color name="lp_destructive_container">#FF7D263F</color>
+    <color name="lp_on_destructive_container">#FFFFFFFF</color>
+
+    <!-- Translucent overlays on dark surfaces -->
+    <color name="lp_overlay_fill">#10FFFFFF</color>
+    <color name="lp_overlay_stroke">#18FFFFFF</color>
+    <color name="lp_overlay_pressed">#1FFFFFFF</color>
+    <color name="lp_sheet_handle">#42FFFFFF</color>
+    <color name="lp_header_button_fill">#25FFFFFF</color>
+    <color name="lp_header_button_stroke">#35FFFFFF</color>
+    <color name="lp_shortcut_stroke">#36FFFFFF</color>
+    <color name="lp_seek_track">#59FFFFFF</color>
+    <color name="lp_page_indicator_inactive">#73BDB7B2</color>
+    <color name="lp_skeleton">#1AFFFFFF</color>
+    <color name="lp_cover_placeholder">#FF2A272D</color>
+    <color name="lp_artwork_playing_shade">#6E101014</color>
+
+    <!-- Atmosphere glow (top of each full-screen page) -->
+    <color name="lp_atmosphere_base">#FF513820</color>
+    <color name="lp_atmosphere_bright">#FFC17D2B</color>
+    <color name="lp_atmosphere_side">#FF805029</color>
+    <color name="lp_atmosphere_bright_mid">#66C17D2B</color>
+    <color name="lp_atmosphere_side_mid">#59805029</color>
+    <color name="lp_atmosphere_clear">#00101014</color>
+
+    <!-- Mini player -->
+    <color name="lp_mini_player_base">#FF151318</color>
+    <color name="lp_mini_player_tint">#6084512B</color>
+    <color name="lp_mini_player_tint_end">#08FFFFFF</color>
+    <color name="lp_mini_player_border">#FFE0C598</color>
+
+    <!-- My Playlist shortcuts -->
+    <color name="lp_shortcut_neutral_start">#FF323238</color>
+    <color name="lp_shortcut_neutral_end">#FF25252B</color>
+    <color name="lp_shortcut_favorite_start">#FFFF658E</color>
+    <color name="lp_shortcut_favorite_end">#FFF3222F</color>
+    <color name="lp_shortcut_local_start">#FFCB8B28</color>
+    <color name="lp_shortcut_local_end">#FF89500D</color>
+
+    <!-- Player record -->
+    <color name="lp_record_ticks">#4DEBC58D</color>
+    <color name="lp_record_rim">#28C9B295</color>
+    <color name="lp_record_rim_stroke">#66EBC58D</color>
+    <color name="lp_record_groove_outer">#1FF7F3FB</color>
+    <color name="lp_record_groove_inner">#12F7F3FB</color>
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- About: collapsed bio (progressive disclosure) with an accent More / Less link. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="18dp"
+    android:paddingTop="14dp"
+    android:paddingBottom="4dp">
+
+    <TextView
+        style="@style/Widget.LocalPure.SectionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/artist_about" />
+
+    <TextView
+        android:id="@+id/bio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:lineSpacingMultiplier="1.2"
+        android:textAppearance="@style/TextAppearance.LocalPure.Body.Medium" />
+
+    <TextView
+        android:id="@+id/tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAppearance="@style/TextAppearance.LocalPure.Body.Small"
+        android:textColor="@color/lp_link" />
+
+    <TextView
+        android:id="@+id/toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="-8dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:minWidth="64dp"
+        android:paddingHorizontal="8dp"
+        android:textAppearance="@style/TextAppearance.LocalPure.Label.Large"
+        android:textColor="@color/lp_accent" />
+</LinearLayout>

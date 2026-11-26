@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Shared full-screen "amber atmosphere" (pen component VXVDt): a warm glow at the top that fades
+    into the near-black canvas. Used as the window/page background of every primary screen.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/lp_background" />
+        </shape>
+    </item>
+    <item
+        android:height="620dp"
+        android:gravity="top|fill_horizontal">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:centerY="0.45"
+                android:centerColor="#FF2E2219"
+                android:endColor="@color/lp_background"
+                android:startColor="@color/lp_atmosphere_base"
+                android:type="linear" />
+        </shape>
+    </item>
+    <item
+        android:height="620dp"
+        android:gravity="top|fill_horizontal">
+        <shape android:shape="rectangle">
+            <gradient
+                android:centerColor="@color/lp_atmosphere_bright_mid"
+                android:centerX="0.55"
+                android:centerY="0"
+                android:endColor="@color/lp_atmosphere_clear"
+                android:gradientRadius="380dp"
+                android:startColor="@color/lp_atmosphere_bright"
+                android:type="radial" />
+        </shape>
+    </item>
+    <item
+        android:height="620dp"
+        android:gravity="top|fill_horizontal">
+        <shape android:shape="rectangle">
+            <gradient
+                android:centerColor="@color/lp_atmosphere_side_mid"
+                android:centerX="1.0"
+                android:centerY="0.22"
+                android:endColor="@color/lp_atmosphere_clear"
+                android:gradientRadius="330dp"
+                android:startColor="@color/lp_atmosphere_side"
+                android:type="radial" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mini player pause: thin outline ring with a pause glyph (pen: icon-pause-ring). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:tint="?attr/colorControlNormal"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M20,1.5a18.5,18.5 0,1 1,0 37a18.5,18.5 0,1 1,0 -37z"
+        android:strokeWidth="1.5"
+        android:strokeColor="@android:color/white" />
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M15.2,13.5h2.3c0.44,0 0.8,0.36 0.8,0.8v11.4c0,0.44 -0.36,0.8 -0.8,0.8h-2.3c-0.44,0 -0.8,-0.36 -0.8,-0.8V14.3C14.4,13.86 14.76,13.5 15.2,13.5zM22.5,13.5h2.3c0.44,0 0.8,0.36 0.8,0.8v11.4c0,0.44 -0.36,0.8 -0.8,0.8h-2.3c-0.44,0 -0.8,-0.36 -0.8,-0.8V14.3C21.7,13.86 22.06,13.5 22.5,13.5z" />
+</vector>

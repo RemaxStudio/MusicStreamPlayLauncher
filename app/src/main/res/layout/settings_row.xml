@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Settings row (pen njeaS): 38dp tinted icon tile, label, optional value, chevron. -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_pref_row_ripple"
+    android:clickable="true"
+    android:focusable="true"
+    android:minHeight="72dp"
+    android:paddingStart="11dp"
+    android:paddingEnd="20dp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="@drawable/bg_pref_icon_tile"
+        android:contentDescription="@null"
+        android:padding="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/lp_on_surface"
+        tools:src="@drawable/ic_pref_language" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.LocalPure.Label.Row"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/value"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Language" />
+
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:ellipsize="end"
+        android:maxWidth="126dp"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.LocalPure.Body.Small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/chevron"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="English" />
+
+    <ImageView
+        android:id="@+id/chevron"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_pref_chevron"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/lp_on_surface" />
+</androidx.constraintlayout.widget.ConstraintLayout>

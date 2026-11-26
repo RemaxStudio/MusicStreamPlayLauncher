@@ -1,0 +1,69 @@
+ext {
+    // AdMob配置
+    admob = [applicationId: "ca-app-pub-4412436975960630~2333289914", // 测试应用ID，请替换为实际的AdMob应用ID
+             adUnitIds    : [banner      : "",        // 横幅广告测试ID
+                             interstitial: "", // 插页广告测试ID
+                             splash      : "",       // 开屏广告测试ID
+                             native      : "",        // 原生广告测试ID
+                             full_native : "",        // 全屏原生广告测试ID
+                             rewarded    : ""         // 激励广告测试ID
+             ]]
+
+    // Google Ad Manager 配置（按业务替换为正式 ID）
+    gam = [adUnitIds: [banner      : "",
+                       interstitial: "",
+                       splash      : "",
+                       native      : "",
+                       full_native : "",
+                       rewarded    : ""
+    ]]
+
+    // Pangle配置
+    pangle = [applicationId: "", // Pangle测试应用ID
+              adUnitIds    : [splash      : "",        // 开屏广告测试ID（竖屏）
+                              banner      : "",        // 横幅广告测试ID（320x50）
+                              interstitial: "",       // 插页广告测试ID（竖屏）
+                              native      : "",        // 原生广告测试ID
+                              full_native : "",        // 全屏原生广告测试ID
+                              rewarded    : ""         // 激励视频测试ID（竖屏）
+              ]]
+
+    // TopOn配置
+    topon = [applicationId: "",           // TopOn 应用 ID（需替换为实际值）
+             appKey       : "",          // TopOn 应用密钥（需替换为实际值）
+             adUnitIds    : [interstitial: "",  // 插页广告位 ID（需替换为实际值）
+                             rewarded    : "",  // 激励广告位 ID
+                             native      : "",  // 原生广告位 ID（需替换为实际值）
+                             splash      : "",  // 开屏广告位 ID（需替换为实际值）
+                             full_native : "",  // 全屏原生广告位 ID（需替换为实际值）
+                             banner      : ""]  // 横幅广告位 ID（需替换为实际值）
+    ]
+
+    // MAX (AppLovin) 配置
+    max = [sdkKey   : "",  // Demo SDK Key（测试用）
+           adUnitIds: [splash      : "",      // 开屏广告位 ID
+                       banner      : "",      // 横幅广告位 ID
+                       interstitial: "",// 插页广告位 ID
+                       native      : "",      // 原生广告位 ID
+                       fullNative  : "", // 全屏原生广告位 ID
+                       rewarded    : ""]    // 激励广告位 ID
+    ]
+
+    // 应用版本配置
+    app = [applicationId: "com.sonicpure.local.audio.tool",
+           compileSdk   : 36,
+           minSdk       : 26,
+           targetSdk    : 36,
+           versionCode  : 6,
+           versionName  : "1.0.5"]
+
+    // 设置页法律链接集中配置，业务层不会硬编码站点地址。
+    legal = [privacyPolicyUrl : "https://metazymorphism.com/privacy.html",
+             termsOfServiceUrl: "https://metazymorphism.com/TermsOfUse.html"]
+
+    // 统计归因配置
+    analytics = [adjustAppToken: "hopjs50gmuww",           // Adjust App Token
+                 thinkingDataAppId: "871c0ebde6be4329b9b74acb3f08ba36",   // 数数 SDK APP ID
+                 thinkingDataServerUrl: "https://ds.devs343.com",     // 数数上报域名
+                 defaultUserChannel: "natural"]                           // 默认用户渠道，internal默认paid
+}

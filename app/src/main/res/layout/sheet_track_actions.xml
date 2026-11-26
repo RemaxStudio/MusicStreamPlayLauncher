@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shared track actions sheet (pen Z95lm1): artwork header and 52dp action rows. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_action_sheet"
+    android:orientation="vertical"
+    android:paddingBottom="20dp">
+
+    <include layout="@layout/sheet_handle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="16dp">
+
+        <com.amberwave.player.core.ui.CoverArtView
+            android:id="@+id/cover"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_action_cover" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/Widget.LocalPure.TrackTitle"
+                android:textAppearance="@style/TextAppearance.LocalPure.Title.Small"
+                tools:text="Fred From Jupiter" />
+
+            <TextView
+                android:id="@+id/artist"
+                style="@style/Widget.LocalPure.TrackArtist"
+                android:layout_marginTop="6dp"
+                tools:text="Digette" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/songInfoAction"
+        style="@style/ActionSheet.Row"
+        android:contentDescription="@string/track_action_song_info">
+
+        <ImageView
+            style="@style/ActionSheet.Icon"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_action_song_info" />
+
+        <TextView
+            style="@style/ActionSheet.Label"
+            android:text="@string/track_action_song_info" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addToPlaylistAction"
+        style="@style/ActionSheet.Row"
+        android:contentDescription="@string/track_action_add_to_playlist">
+
+        <ImageView
+            style="@style/ActionSheet.Icon"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_action_add_playlist" />
+
+        <TextView
+            style="@style/ActionSheet.Label"
+            android:text="@string/track_action_add_to_playlist" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/downloadAction"
+        style="@style/ActionSheet.Row"
+        android:contentDescription="@string/track_action_download">
+
+        <ImageView
+            style="@style/ActionSheet.Icon"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_action_download" />
+
+        <TextView
+            style="@style/ActionSheet.Label"
+            android:text="@string/track_action_download" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/favoriteAction"
+        style="@style/ActionSheet.Row"
+        android:contentDescription="@string/track_action_favorite">
+
+        <ImageView
+            android:id="@+id/favoriteIcon"
+            style="@style/ActionSheet.Icon"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_action_favorite" />
+
+        <TextView
+            android:id="@+id/favoriteLabel"
+            style="@style/ActionSheet.Label"
+            android:text="@string/track_action_favorite" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/deleteFromDeviceAction"
+        style="@style/ActionSheet.Row"
+        android:contentDescription="@string/track_action_delete_from_device">
+
+        <ImageView
+            style="@style/ActionSheet.Icon"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_action_delete"
+            app:tint="@color/action_danger" />
+
+        <TextView
+            style="@style/ActionSheet.Label"
+            android:text="@string/track_action_delete_from_device"
+            android:textColor="@color/action_danger" />
+    </LinearLayout>
+</LinearLayout>

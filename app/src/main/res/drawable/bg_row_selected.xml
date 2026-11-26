@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Selection is carried by the checkbox; rows keep only the pressed ripple (no bulky fill). -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/lp_overlay_pressed" />

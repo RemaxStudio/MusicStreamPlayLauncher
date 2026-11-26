@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Back face of the player stage: "Lyrics" / "About this track" card with scrollable text. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/trackTextFace"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_stage_text_face"
+    android:orientation="vertical"
+    android:paddingHorizontal="22dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:id="@+id/trackTextLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityHeading="true"
+        android:text="@string/player_lyrics"
+        android:textAppearance="@style/TextAppearance.LocalPure.Title.Medium"
+        android:textSize="19sp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/trackTextScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="14dp"
+        android:layout_weight="1"
+        android:fadingEdgeLength="24dp"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:requiresFadingEdge="vertical"
+        android:scrollbars="none">
+
+        <TextView
+            android:id="@+id/trackTextContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.45"
+            android:textAppearance="@style/TextAppearance.LocalPure.Body.Large"
+            android:textSize="16sp" />
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

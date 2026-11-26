@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Recommended row inside a home page group; same anatomy as item_home_track. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:minHeight="56dp"
+    android:orientation="horizontal"
+    android:paddingStart="18dp"
+    android:paddingEnd="6dp">
+
+    <com.amberwave.player.feature.hub.HubArtworkView
+        android:id="@+id/cover"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_lp_cover" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingVertical="4dp">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/Widget.LocalPure.TrackTitle"
+            android:textColor="@color/selector_track_title"
+            tools:text="Fred From Jupiter" />
+
+        <TextView
+            android:id="@+id/artist"
+            style="@style/Widget.LocalPure.TrackArtist"
+            android:textColor="@color/selector_track_artist"
+            tools:text="Digette" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/more"
+        style="@style/Widget.LocalPure.ImageButton"
+        android:contentDescription="@string/home_more"
+        android:src="@drawable/ic_lp_more_horiz" />
+</LinearLayout>

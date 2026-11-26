@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- My Playlist shortcut card: vertical gradient, 14dp corners, hairline highlight. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:endColor="@color/lp_shortcut_neutral_end"
+        android:startColor="@color/lp_shortcut_neutral_start" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/lp_shortcut_stroke" />
+    <corners android:radius="14dp" />
+</shape>

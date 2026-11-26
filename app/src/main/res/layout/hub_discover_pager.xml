@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Recommended groups: one page of four rows at a time (PagerSnapHelper) with a page indicator. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="12dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+        android:overScrollMode="never" />
+
+    <com.amberwave.player.core.ui.PagerDots
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:layout_marginTop="4dp"
+        android:importantForAccessibility="no" />
+</LinearLayout>

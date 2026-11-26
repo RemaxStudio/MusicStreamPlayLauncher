@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Shared centered status block for empty / error / permission states
+    (pen: "No music found", "Unable to search for music.", "Access your music", ...).
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp">
+
+    <ImageView
+        android:id="@+id/statusIllustration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:maxHeight="120dp"
+        android:visibility="gone"
+        tools:src="@drawable/img_lp_empty_music"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/stateTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityHeading="true"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.LocalPure.Title.Large"
+        android:visibility="gone"
+        tools:text="No music found"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/stateMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:paddingHorizontal="24dp"
+        android:textAppearance="@style/TextAppearance.LocalPure.Body.Medium"
+        tools:text="Check your connection and try again." />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/retry"
+        style="@style/Widget.LocalPure.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:minWidth="168dp"
+        android:text="@string/search_retry" />
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 设计稿为 390×844dp，较高屏幕恢复完整的视觉留白与 286dp 唱片。 -->
+    <dimen name="player_toolbar_margin_top">8dp</dimen>
+    <dimen name="player_artwork_margin_top">30dp</dimen>
+    <dimen name="player_artwork_max_size">300dp</dimen>
+    <dimen name="player_title_margin_top">24dp</dimen>
+    <dimen name="player_seek_control_gap">12dp</dimen>
+    <dimen name="player_control_bottom_margin">48dp</dimen>
+</resources>

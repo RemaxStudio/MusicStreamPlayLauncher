@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    LocalPure type scale, shapes and widget styles. Sizes come from MusicPlayerFlowLauncher.pen
+    (Inter, 390dp-wide frames). Text sizes use sp so they follow the user's font scale.
+-->
+<resources>
+    <!-- ───────────── Type ───────────── -->
+    <style name="TextAppearance.LocalPure" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:textColor">@color/lp_on_surface</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextAppearance.LocalPure.Title" />
+    <style name="TextAppearance.LocalPure.Body" />
+    <style name="TextAppearance.LocalPure.Label" />
+
+    <!-- "LocalPure" brand wordmark on the home header. -->
+    <style name="TextAppearance.LocalPure.Wordmark">
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">31sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+
+    <!-- Large page headings: "Search", "On this device", artist name. -->
+    <style name="TextAppearance.LocalPure.Display">
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="TextAppearance.LocalPure.Headline">
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <!-- Bottom-sheet titles, player track title, empty/error headings. -->
+    <style name="TextAppearance.LocalPure.Title.Large">
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="TextAppearance.LocalPure.Title.Dialog">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <!-- Section headings and toolbar titles. -->
+    <style name="TextAppearance.LocalPure.Title.Medium">
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.LocalPure.Title.Small">
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <!-- Song title in every track row. -->
+    <style name="TextAppearance.LocalPure.TrackTitle">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Artist / secondary line in track rows. -->
+    <style name="TextAppearance.LocalPure.TrackArtist">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/lp_on_surface_variant</item>
+    </style>
+
+    <style name="TextAppearance.LocalPure.Body.Large">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+    </style>
+
+    <style name="TextAppearance.LocalPure.Body.Medium">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/lp_on_surface_variant</item>
+    </style>
+
+    <style name="TextAppearance.LocalPure.Body.Small">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/lp_on_surface_variant</item>
+    </style>
+
+    <!-- Buttons and emphasized row labels. -->
+    <style name="TextAppearance.LocalPure.Label.Large">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Settings / action-sheet rows. -->
+    <style name="TextAppearance.LocalPure.Label.Row">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextAppearance.LocalPure.Label.Medium">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Shortcut card labels, small captions. -->
+    <style name="TextAppearance.LocalPure.Caption">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">12.5sp</item>
+    </style>
+
+    <style name="TextAppearance.LocalPure.Numeric">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+
+    <!-- Default for every TextView: Inter via textAppearance, so explicit appearances still win. -->
+    <style name="Widget.LocalPure.TextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure</item>
+    </style>
+
+    <!-- Reusable text styles for list rows (layout attributes + appearance). -->
+    <style name="Widget.LocalPure.TrackTitle" parent="Widget.LocalPure.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.TrackTitle</item>
+    </style>
+
+    <style name="Widget.LocalPure.TrackArtist" parent="Widget.LocalPure.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.TrackArtist</item>
+    </style>
+
+    <style name="Base.Widget.LocalPure.SectionTitle" parent="Widget.LocalPure.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.Title.Medium</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- API 28+ adds the heading semantics (values-v28/styles.xml). -->
+    <style name="Widget.LocalPure.SectionTitle" parent="Base.Widget.LocalPure.SectionTitle" />
+
+    <!-- ───────────── Shapes ───────────── -->
+    <style name="ShapeAppearance.LocalPure.Small" parent="ShapeAppearance.Material3.Corner.Small">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="ShapeAppearance.LocalPure.Medium" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="ShapeAppearance.LocalPure.Large" parent="ShapeAppearance.Material3.Corner.Large">
+        <item name="cornerSize">18dp</item>
+    </style>
+
+    <style name="ShapeAppearance.LocalPure.ExtraLarge" parent="ShapeAppearance.Material3.Corner.ExtraLarge">
+        <item name="cornerSize">26dp</item>
+    </style>
+
+    <style name="ShapeAppearance.LocalPure.Full" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+
+    <style name="ShapeAppearance.LocalPure.CoverLarge" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="ShapeAppearance.LocalPure.Sheet" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">26dp</item>
+        <item name="cornerSizeTopRight">26dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <style name="ShapeAppearance.LocalPure.Dialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <!-- ───────────── Buttons ───────────── -->
+    <!-- Primary pill: amber fill, dark label, 44dp visual inside a 48dp touch target. -->
+    <style name="Widget.LocalPure.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:insetTop">2dp</item>
+        <item name="android:insetBottom">2dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.Label.Large</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@color/selector_button_primary_container</item>
+        <item name="android:textColor">@color/selector_button_primary_content</item>
+        <item name="iconTint">@color/selector_button_primary_content</item>
+        <item name="iconSize">18dp</item>
+        <item name="iconPadding">8dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.LocalPure.Full</item>
+        <item name="rippleColor">@color/lp_overlay_pressed</item>
+    </style>
+
+    <!-- Full-width primary pill with the play glyph pinned to the start (Play all / Play popular). -->
+    <style name="Widget.LocalPure.Button.Play">
+        <item name="icon">@drawable/ic_lp_play</item>
+        <item name="iconGravity">start</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+    </style>
+
+    <!-- Secondary pill: translucent fill with hairline stroke (Cancel, New). -->
+    <style name="Widget.LocalPure.Button.Tonal" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:insetTop">2dp</item>
+        <item name="android:insetBottom">2dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.Label.Large</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/lp_on_surface</item>
+        <item name="backgroundTint">@color/lp_overlay_fill</item>
+        <item name="strokeColor">@color/lp_overlay_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.LocalPure.Full</item>
+        <item name="rippleColor">@color/lp_overlay_pressed</item>
+    </style>
+
+    <!-- Destructive confirmation (Delete playlist). -->
+    <style name="Widget.LocalPure.Button.Destructive">
+        <item name="backgroundTint">@color/lp_destructive_container</item>
+        <item name="android:textColor">@color/lp_on_destructive_container</item>
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.Label.Medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Widget.LocalPure.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.Label.Large</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/lp_on_surface</item>
+        <item name="rippleColor">@color/lp_overlay_pressed</item>
+    </style>
+
+    <!-- Inline accent link ("More ›", "More" on artist About). -->
+    <style name="Widget.LocalPure.Button.Link" parent="Widget.LocalPure.Button.Text">
+        <item name="android:textColor">@color/lp_link</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="iconTint">@color/lp_link</item>
+        <item name="iconGravity">end</item>
+        <item name="iconSize">18dp</item>
+        <item name="iconPadding">2dp</item>
+    </style>
+
+    <style name="Widget.LocalPure.Button.Dialog" parent="Widget.LocalPure.Button.Text" />
+
+    <!-- 48dp icon button with an unbounded ripple; icon tint comes from colorControlNormal. -->
+    <style name="Widget.LocalPure.IconButton" parent="Widget.Material3.Button.IconButton">
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="iconPadding">0dp</item>
+        <item name="iconSize">24dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconTint">@color/selector_icon_button</item>
+        <item name="rippleColor">@color/lp_overlay_pressed</item>
+    </style>
+
+    <!-- Translucent circular header action (search / settings / artist share). -->
+    <style name="Widget.LocalPure.IconButton.Circle">
+        <item name="backgroundTint">@color/lp_header_button_fill</item>
+        <item name="strokeColor">@color/lp_header_button_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:insetTop">5dp</item>
+        <item name="android:insetBottom">5dp</item>
+        <item name="android:insetLeft">5dp</item>
+        <item name="android:insetRight">5dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.LocalPure.Full</item>
+    </style>
+
+    <!-- Plain ImageButton for overflow (•••) in track rows, keeps 48dp target. -->
+    <style name="Widget.LocalPure.ImageButton" parent="">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="tint">@color/selector_icon_button</item>
+    </style>
+
+    <!-- ───────────── Toolbar ───────────── -->
+    <style name="Widget.LocalPure.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="titleTextAppearance">@style/TextAppearance.LocalPure.Title.Medium</item>
+        <item name="titleTextColor">@color/lp_on_surface</item>
+        <item name="navigationIconTint">@color/lp_icon</item>
+        <item name="titleMarginStart">6dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:theme">@style/ThemeOverlay.LocalPure.Toolbar</item>
+    </style>
+
+    <style name="ThemeOverlay.LocalPure.Toolbar" parent="ThemeOverlay.Material3.Dark.ActionBar">
+        <item name="colorControlNormal">@color/lp_icon</item>
+        <item name="actionMenuTextColor">@color/lp_on_surface</item>
+        <item name="popupTheme">@style/ThemeOverlay.LocalPure.Popup</item>
+    </style>
+
+    <style name="ThemeOverlay.LocalPure.Popup" parent="ThemeOverlay.Material3.Dark">
+        <item name="colorSurface">@color/lp_surface_container_high</item>
+        <item name="colorSurfaceContainer">@color/lp_surface_container_high</item>
+        <item name="android:textColorPrimary">@color/lp_on_surface</item>
+    </style>
+
+    <style name="Widget.LocalPure.PopupMenu" parent="Widget.Material3.PopupMenu">
+        <item name="android:popupBackground">@drawable/bg_lp_popup</item>
+        <item name="android:popupElevation">8dp</item>
+        <item name="android:dropDownHorizontalOffset">-8dp</item>
+    </style>
+
+    <style name="Widget.LocalPure.PopupMenu.Overflow" parent="Widget.Material3.PopupMenu.Overflow">
+        <item name="android:popupBackground">@drawable/bg_lp_popup</item>
+    </style>
+
+    <!-- ───────────── Selection controls ───────────── -->
+    <style name="Widget.LocalPure.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/selector_checkbox_button</item>
+        <item name="buttonIconTint">@color/lp_on_accent</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="Widget.LocalPure.RadioButton" parent="Widget.Material3.CompoundButton.RadioButton">
+        <item name="buttonTint">@color/selector_checkbox_button</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <!-- Folder filter chips on Local music. -->
+    <style name="Widget.LocalPure.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/selector_chip_background</item>
+        <item name="android:textColor">@color/selector_chip_text</item>
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.Label.Medium</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="chipMinHeight">36dp</item>
+        <item name="chipCornerRadius">18dp</item>
+        <item name="chipStartPadding">10dp</item>
+        <item name="chipEndPadding">10dp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipIconVisible">false</item>
+        <item name="ensureMinTouchTargetSize">true</item>
+        <item name="rippleColor">@color/lp_overlay_pressed</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.LocalPure.Full</item>
+    </style>
+
+    <!-- ───────────── Text field ───────────── -->
+    <style name="Widget.LocalPure.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/lp_surface</item>
+        <item name="boxStrokeColor">@color/selector_text_field_stroke</item>
+        <item name="boxStrokeErrorColor">@color/lp_error</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="counterTextColor">@color/lp_on_surface_variant</item>
+        <item name="counterOverflowTextColor">@color/lp_error</item>
+        <item name="counterTextAppearance">@style/TextAppearance.LocalPure.Body.Small</item>
+        <item name="errorTextColor">@color/lp_error</item>
+        <item name="errorTextAppearance">@style/TextAppearance.LocalPure.Body.Small</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="hintEnabled">false</item>
+        <item name="cursorColor">@color/lp_accent</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.LocalPure.TextInputEditText</item>
+    </style>
+
+    <style name="ThemeOverlay.LocalPure.TextInputEditText" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
+        <item name="editTextStyle">@style/Widget.LocalPure.TextInputEditText</item>
+    </style>
+
+    <style name="Widget.LocalPure.TextInputEditText" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.Body.Large</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/lp_on_surface</item>
+        <item name="android:textColorHint">@color/lp_on_surface_variant</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <!-- ───────────── Feedback ───────────── -->
+    <style name="Widget.LocalPure.CircularProgressIndicator" parent="Widget.Material3.CircularProgressIndicator">
+        <item name="indicatorColor">@color/lp_accent</item>
+        <item name="trackColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.LocalPure.Snackbar" parent="Widget.Material3.Snackbar">
+        <item name="backgroundTint">@color/lp_surface_container_highest</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.LocalPure.Medium</item>
+    </style>
+
+    <style name="Widget.LocalPure.Snackbar.TextView" parent="Widget.Material3.Snackbar.TextView">
+        <item name="android:textColor">@color/lp_on_surface</item>
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.Body.Large</item>
+    </style>
+</resources>

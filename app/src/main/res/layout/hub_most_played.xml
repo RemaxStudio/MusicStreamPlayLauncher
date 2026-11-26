@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    "Most played" (pen n7czC): one featured track with large artwork on the start side and the
+    next two tracks as compact rows on the end side.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="18dp"
+    android:paddingEnd="12dp"
+    android:paddingBottom="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/featured"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.4">
+
+        <com.amberwave.player.feature.hub.HubArtworkView
+            android:id="@+id/featuredCover"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_lp_cover_large"
+            app:layout_constraintDimensionRatio="H,6:5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/featuredTitle"
+            style="@style/Widget.LocalPure.TrackTitle"
+            android:layout_width="0dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/selector_track_title"
+            app:layout_constraintEnd_toStartOf="@id/featuredPlay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/featuredCover"
+            tools:text="JUMP" />
+
+        <TextView
+            android:id="@+id/featuredArtist"
+            style="@style/Widget.LocalPure.TrackArtist"
+            android:layout_width="0dp"
+            android:textColor="@color/selector_track_artist"
+            app:layout_constraintEnd_toStartOf="@id/featuredPlay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/featuredTitle"
+            tools:text="BlankPink" />
+
+        <ImageView
+            android:id="@+id/featuredPlay"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@null"
+            android:importantForAccessibility="no"
+            android:scaleType="center"
+            android:src="@drawable/ic_lp_play_circle_small"
+            app:layout_constraintBottom_toBottomOf="@id/featuredArtist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/featuredTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/second"
+        layout="@layout/hub_most_played_row"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/featured"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/third"
+        layout="@layout/hub_most_played_row"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/featured"
+        app:layout_constraintTop_toBottomOf="@id/second" />
+</androidx.constraintlayout.widget.ConstraintLayout>

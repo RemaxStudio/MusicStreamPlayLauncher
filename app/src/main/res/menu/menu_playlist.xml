@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_select" android:icon="@drawable/ic_lp_checklist" android:title="@string/playlist_select" app:showAsAction="always" />
+    <item android:id="@+id/action_remove" android:icon="@drawable/ic_collection_remove" android:title="@string/playlist_remove_selected" android:visible="false" app:showAsAction="always" />
+    <item android:id="@+id/action_more" android:icon="@drawable/ic_lp_more_vert" android:title="@string/home_more" app:showAsAction="always" />
+</menu>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Track action sheet roles mapped onto the LocalPure amber palette. -->
+    <color name="action_icon">@color/lp_icon</color>
+    <!-- 收藏态保留独立的爱心红语义色，避免与琥珀强调色混淆。 -->
+    <color name="action_favorite">#FFFF5470</color>
+    <color name="action_danger">@color/lp_error</color>
+
+    <!-- 52dp full-width action row (pen Z95lm1): 24dp icon at 24dp, label at 64dp. -->
+    <style name="ActionSheet.Row" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+    </style>
+
+    <style name="ActionSheet.Icon" parent="">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:contentDescription">@null</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="tint">@color/selector_icon_button</item>
+    </style>
+
+    <style name="ActionSheet.Label" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.LocalPure.Label.Row</item>
+        <item name="android:textColor">@color/selector_action_label</item>
+    </style>
+</resources>

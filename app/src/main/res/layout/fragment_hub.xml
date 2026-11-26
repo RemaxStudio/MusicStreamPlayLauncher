@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_lp_atmosphere"
+    tools:context=".HostActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/homeList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:background="@android:color/transparent"
+        android:overScrollMode="never"
+        android:paddingBottom="18dp"
+        tools:listitem="@layout/hub_track_row" />
+
+    <include
+        android:id="@+id/miniPlayer"
+        layout="@layout/now_playing_bar"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <FrameLayout
+        android:id="@+id/adContainer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:visibility="gone" />
+</FrameLayout>
