@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "102905156689",
+    "project_id": "ag626fe22647-3ac28-gp",
+    "storage_bucket": "ag626fe22647-3ac28-gp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102905156689:android:ad816b8976e8b0cb625470",
+        "android_client_info": {
+          "package_name": "com.musicplay.stream.playlist.online.audio.mp3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXimA14gX3eBM3sD9gegHFuaJZNfzbwuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
