@@ -50,6 +50,31 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Write google-services.json from secrets
+        env:
+          GOOGLE_SERVICES_TARGET: app/src/google/google-services.json
+          # Firebase 配置不入库：在仓库 Secrets 中以 base64 保存，打包时还原到 google 渠道目录。
+          GOOGLE_SERVICES_JSON_BASE64: ${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -s "$GOOGLE_SERVICES_TARGET" ]; then
+            echo "Using committed $GOOGLE_SERVICES_TARGET"
+            exit 0
+          fi
+
+          if [ -z "${GOOGLE_SERVICES_JSON_BASE64:-}" ]; then
+            echo "Missing google channel Firebase config." >&2
+            echo "Configure repository secret GOOGLE_SERVICES_JSON_BASE64 (base64 of google-services.json)." >&2
+            exit 1
+          fi
+
+          mkdir -p "$(dirname "$GOOGLE_SERVICES_TARGET")"
+          printf '%s' "$GOOGLE_SERVICES_JSON_BASE64" | base64 --decode > "$GOOGLE_SERVICES_TARGET"
+          jq -e '.client[0].client_info.android_client_info.package_name' "$GOOGLE_SERVICES_TARGET" > /dev/null
+          echo "Restored $GOOGLE_SERVICES_TARGET for package $(jq -r '.client[0].client_info.android_client_info.package_name' "$GOOGLE_SERVICES_TARGET")"
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:

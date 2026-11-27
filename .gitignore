@@ -17,3 +17,4 @@ build/
 local.properties
 /build.config.properties
 /.novi-sdk/
+/app/src/google/google-services.json
