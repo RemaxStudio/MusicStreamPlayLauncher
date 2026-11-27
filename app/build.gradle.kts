@@ -76,16 +76,30 @@ val appVersionName = app.text("versionName", "1.0.0")
 val appVersionCode = app.number("versionCode", 1)
 val fallbackPackage = app.text("applicationId", "com.streamplay.music")
 
+/**
+ * Alias and passwords the AAB workflow commits next to the keystore it generates. Explicit Gradle
+ * properties / environment variables still win, so a local or one-off override keeps working.
+ */
+val releaseSigningDir = file("src/google")
+val releaseSigningProps = java.util.Properties().apply {
+    releaseSigningDir.resolve("google-release-signing.properties").takeIf { it.isFile }?.inputStream()?.use { load(it) }
+}
+
+fun signingValue(envName: String, propKey: String, fallback: String): String =
+    secret(envName).ifEmpty { releaseSigningProps.getProperty(propKey)?.trim().orEmpty() }.ifEmpty { fallback }
+
 val releaseKeystore = secret("ANDROID_SIGNING_STORE_FILE").let { path ->
+    val committedStore = releaseSigningProps.getProperty("storeFile")?.trim().orEmpty()
     when {
-        path.isEmpty() -> file("src/google/google-release.keystore")
-        file(path).isAbsolute -> file(path)
-        else -> rootProject.file(path)
+        // project.file() resolves relative paths from app/, matching the workflow's KEYSTORE_GRADLE_PATH.
+        path.isNotEmpty() -> file(path)
+        committedStore.isNotEmpty() -> releaseSigningDir.resolve(committedStore)
+        else -> releaseSigningDir.resolve("google-release.keystore")
     }
 }
-val releaseStorePassword = secret("ANDROID_SIGNING_STORE_PASSWORD").ifEmpty { "google123456" }
-val releaseKeyAlias = secret("ANDROID_SIGNING_KEY_ALIAS").ifEmpty { "google" }
-val releaseKeyPassword = secret("ANDROID_SIGNING_KEY_PASSWORD").ifEmpty { "google123456" }
+val releaseStorePassword = signingValue("ANDROID_SIGNING_STORE_PASSWORD", "storePassword", "google123456")
+val releaseKeyAlias = signingValue("ANDROID_SIGNING_KEY_ALIAS", "keyAlias", "google")
+val releaseKeyPassword = signingValue("ANDROID_SIGNING_KEY_PASSWORD", "keyPassword", "google123456")
 val releaseSigningReady = releaseKeystore.isFile && releaseKeystore.length() > 0L
 
 // Only artifact-producing GoogleRelease tasks demand a real keystore; metadata helpers do not.
