@@ -145,7 +145,7 @@
     <item quantity="other">%d dossiers</item>
   </plurals>
   <string name="local_music_permission_title">Accédez à votre musique</string>
-  <string name="local_music_permission_message">Autorisez Music Stream Play Launcher à rechercher et lire les fichiers audio stockés sur cet appareil.</string>
+  <string name="local_music_permission_message">Autorisez Music Stream Play à rechercher et lire les fichiers audio stockés sur cet appareil.</string>
   <string name="local_music_allow_access">Autoriser l’accès</string>
   <string name="local_music_open_settings">Ouvrir les paramètres</string>
   <string name="local_music_empty_title">Aucune musique locale trouvée</string>

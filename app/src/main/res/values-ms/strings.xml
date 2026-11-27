@@ -135,7 +135,7 @@
     <item quantity="other">%d folder</item>
   </plurals>
   <string name="local_music_permission_title">Akses muzik anda</string>
-  <string name="local_music_permission_message">Benarkan Music Stream Play Launcher mencari dan memainkan fail audio yang disimpan pada peranti ini.</string>
+  <string name="local_music_permission_message">Benarkan Music Stream Play mencari dan memainkan fail audio yang disimpan pada peranti ini.</string>
   <string name="local_music_allow_access">Benarkan akses</string>
   <string name="local_music_open_settings">Buka tetapan</string>
   <string name="local_music_empty_title">Tiada muzik tempatan ditemui</string>

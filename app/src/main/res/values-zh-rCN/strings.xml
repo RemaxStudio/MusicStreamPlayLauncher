@@ -135,7 +135,7 @@
     <item quantity="other">%d 个文件夹</item>
   </plurals>
   <string name="local_music_permission_title">访问你的音乐</string>
-  <string name="local_music_permission_message">允许 Music Stream Play Launcher 查找并播放此设备上存储的音频文件。</string>
+  <string name="local_music_permission_message">允许 Music Stream Play 查找并播放此设备上存储的音频文件。</string>
   <string name="local_music_allow_access">允许访问</string>
   <string name="local_music_open_settings">打开设置</string>
   <string name="local_music_empty_title">未找到本地音乐</string>

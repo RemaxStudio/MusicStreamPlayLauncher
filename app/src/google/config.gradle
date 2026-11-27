@@ -1,6 +1,6 @@
 ext {
     // AdMob配置
-    admob = [applicationId: "ca-app-pub-4412436975960630~2333289914", // 测试应用ID，请替换为实际的AdMob应用ID
+    admob = [applicationId: "", // AdMob 应用 ID
              adUnitIds    : [banner      : "",        // 横幅广告测试ID
                              interstitial: "", // 插页广告测试ID
                              splash      : "",       // 开屏广告测试ID
@@ -40,7 +40,7 @@ ext {
     ]
 
     // MAX (AppLovin) 配置
-    max = [sdkKey   : "",  // Demo SDK Key（测试用）
+    max = [sdkKey   : "",  // AppLovin SDK Key
            adUnitIds: [splash      : "",      // 开屏广告位 ID
                        banner      : "",      // 横幅广告位 ID
                        interstitial: "",// 插页广告位 ID
@@ -50,7 +50,7 @@ ext {
     ]
 
     // 应用版本配置
-    app = [applicationId: "com.sonicpure.local.audio.tool",
+    app = [applicationId: "com.musicplay.stream.playlist.online.audio.mp3",
            compileSdk   : 36,
            minSdk       : 26,
            targetSdk    : 36,
@@ -58,8 +58,8 @@ ext {
            versionName  : "1.0.5"]
 
     // 设置页法律链接集中配置，业务层不会硬编码站点地址。
-    legal = [privacyPolicyUrl : "https://metazymorphism.com/privacy.html",
-             termsOfServiceUrl: "https://metazymorphism.com/TermsOfUse.html"]
+    legal = [privacyPolicyUrl : "https://pperteam.com/privacy.html",
+             termsOfServiceUrl: "https://pperteam.com/TermsOfUse.html"]
 
     // 统计归因配置
     analytics = [adjustAppToken: "hopjs50gmuww",           // Adjust App Token

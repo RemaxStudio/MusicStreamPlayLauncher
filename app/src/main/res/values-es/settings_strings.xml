@@ -5,6 +5,8 @@
   <string name="settings_language">Idioma</string>
   <string name="settings_privacy_policy">Política de privacidad</string>
   <string name="settings_terms_of_service">Términos del servicio</string>
+  <string name="settings_feedback">Enviar comentarios</string>
+  <string name="settings_feedback_open_failed">No hay ninguna aplicación de correo disponible</string>
   <string name="language_picker_title">Seleccionar idioma</string>
   <string name="language_picker_subtitle">Elige el idioma que se usará en toda la aplicación.</string>
   <string name="settings_language_change_failed">No se pudo cambiar el idioma de la aplicación</string>

@@ -5,6 +5,8 @@
   <string name="settings_language">Langue</string>
   <string name="settings_privacy_policy">Politique de confidentialité</string>
   <string name="settings_terms_of_service">Conditions d’utilisation</string>
+  <string name="settings_feedback">Envoyer des commentaires</string>
+  <string name="settings_feedback_open_failed">Aucune application de messagerie n’est disponible</string>
   <string name="language_picker_title">Choisir la langue</string>
   <string name="language_picker_subtitle">Choisissez la langue utilisée dans toute l’application.</string>
   <string name="settings_language_change_failed">Impossible de changer la langue de l’application</string>

@@ -5,6 +5,8 @@
   <string name="settings_language">Bahasa</string>
   <string name="settings_privacy_policy">Dasar Privasi</string>
   <string name="settings_terms_of_service">Syarat Perkhidmatan</string>
+  <string name="settings_feedback">Hantar maklum balas</string>
+  <string name="settings_feedback_open_failed">Tiada aplikasi e-mel yang tersedia</string>
   <string name="language_picker_title">Pilih bahasa</string>
   <string name="language_picker_subtitle">Pilih bahasa yang digunakan di seluruh aplikasi.</string>
   <string name="settings_language_change_failed">Bahasa aplikasi tidak dapat ditukar</string>

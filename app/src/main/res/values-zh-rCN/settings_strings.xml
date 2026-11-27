@@ -5,6 +5,8 @@
   <string name="settings_language">语言</string>
   <string name="settings_privacy_policy">隐私政策</string>
   <string name="settings_terms_of_service">服务条款</string>
+  <string name="settings_feedback">意见反馈</string>
+  <string name="settings_feedback_open_failed">没有可用的邮件应用</string>
   <string name="language_picker_title">选择语言</string>
   <string name="language_picker_subtitle">选择整个应用使用的界面语言。</string>
   <string name="settings_language_change_failed">无法切换应用语言</string>

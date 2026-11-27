@@ -135,7 +135,7 @@
     <item quantity="other">폴더 %d개</item>
   </plurals>
   <string name="local_music_permission_title">음악에 접근</string>
-  <string name="local_music_permission_message">Music Stream Play Launcher가 이 기기에 저장된 오디오 파일을 찾아 재생하도록 허용하세요.</string>
+  <string name="local_music_permission_message">Music Stream Play가 이 기기에 저장된 오디오 파일을 찾아 재생하도록 허용하세요.</string>
   <string name="local_music_allow_access">접근 허용</string>
   <string name="local_music_open_settings">설정 열기</string>
   <string name="local_music_empty_title">로컬 음악을 찾을 수 없습니다</string>

@@ -5,6 +5,8 @@
   <string name="settings_language">Sprache</string>
   <string name="settings_privacy_policy">Datenschutzrichtlinie</string>
   <string name="settings_terms_of_service">Nutzungsbedingungen</string>
+  <string name="settings_feedback">Feedback senden</string>
+  <string name="settings_feedback_open_failed">Es ist keine E-Mail-App verfügbar</string>
   <string name="language_picker_title">Sprache auswählen</string>
   <string name="language_picker_subtitle">Wähle die Sprache für die gesamte App aus.</string>
   <string name="settings_language_change_failed">Die App-Sprache konnte nicht geändert werden</string>

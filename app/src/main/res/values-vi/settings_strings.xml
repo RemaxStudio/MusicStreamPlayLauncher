@@ -5,6 +5,8 @@
   <string name="settings_language">Ngôn ngữ</string>
   <string name="settings_privacy_policy">Chính sách bảo mật</string>
   <string name="settings_terms_of_service">Điều khoản dịch vụ</string>
+  <string name="settings_feedback">Gửi phản hồi</string>
+  <string name="settings_feedback_open_failed">Không có ứng dụng email nào khả dụng</string>
   <string name="language_picker_title">Chọn ngôn ngữ</string>
   <string name="language_picker_subtitle">Chọn ngôn ngữ được sử dụng trong toàn bộ ứng dụng.</string>
   <string name="settings_language_change_failed">Không thể thay đổi ngôn ngữ ứng dụng</string>

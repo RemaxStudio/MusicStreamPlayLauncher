@@ -140,7 +140,7 @@
     <item quantity="other">%d Ordner</item>
   </plurals>
   <string name="local_music_permission_title">Auf deine Musik zugreifen</string>
-  <string name="local_music_permission_message">Erlaube Music Stream Play Launcher, auf diesem Gerät gespeicherte Audiodateien zu finden und wiederzugeben.</string>
+  <string name="local_music_permission_message">Erlaube Music Stream Play, auf diesem Gerät gespeicherte Audiodateien zu finden und wiederzugeben.</string>
   <string name="local_music_allow_access">Zugriff erlauben</string>
   <string name="local_music_open_settings">Einstellungen öffnen</string>
   <string name="local_music_empty_title">Keine lokale Musik gefunden</string>

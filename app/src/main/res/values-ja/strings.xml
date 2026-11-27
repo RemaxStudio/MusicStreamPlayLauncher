@@ -135,7 +135,7 @@
     <item quantity="other">%d フォルダー</item>
   </plurals>
   <string name="local_music_permission_title">音楽へのアクセス</string>
-  <string name="local_music_permission_message">Music Stream Play Launcher がこの端末内の音声ファイルを検索して再生することを許可します。</string>
+  <string name="local_music_permission_message">Music Stream Play がこの端末内の音声ファイルを検索して再生することを許可します。</string>
   <string name="local_music_allow_access">アクセスを許可</string>
   <string name="local_music_open_settings">設定を開く</string>
   <string name="local_music_empty_title">ローカル音楽が見つかりません</string>

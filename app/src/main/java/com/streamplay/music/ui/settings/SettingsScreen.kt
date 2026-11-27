@@ -24,6 +24,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.Article
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
+import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material.icons.outlined.Language
 import androidx.compose.material.icons.outlined.PrivacyTip
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -85,6 +86,8 @@ fun SettingsScreen(navigator: AppNavigator, viewModel: SettingsViewModel = viewM
     var pickingLanguage by rememberSaveable { mutableStateOf(false) }
     val linkMissing = stringResource(R.string.settings_link_unavailable)
     val noBrowser = stringResource(R.string.settings_link_open_failed)
+    val feedbackEmail = stringResource(R.string.feedback_email)
+    val noEmailApp = stringResource(R.string.settings_feedback_open_failed)
     val changeFailed = stringResource(R.string.settings_language_change_failed)
 
     LaunchedEffect(Unit) { Telemetry.log(ScreenViewed(Screen.SETTINGS)) }
@@ -141,6 +144,18 @@ fun SettingsScreen(navigator: AppNavigator, viewModel: SettingsViewModel = viewM
                     icon = Icons.AutoMirrored.Outlined.Article,
                     label = stringResource(R.string.settings_terms_of_service),
                     onClick = { openLink(state.termsOfServiceUrl, SettingsAction.OPEN_TERMS_OF_SERVICE) },
+                )
+                RowDivider(startInset = 58.dp, endInset = 16.dp)
+                SettingsRow(
+                    icon = Icons.Outlined.Email,
+                    label = stringResource(R.string.settings_feedback),
+                    onClick = {
+                        try {
+                            context.startActivity(Intent(Intent.ACTION_SENDTO, "mailto:$feedbackEmail".toUri()))
+                        } catch (_: ActivityNotFoundException) {
+                            scope.launch { session.snackbar.showSnackbar(noEmailApp) }
+                        }
+                    },
                 )
             }
         }
