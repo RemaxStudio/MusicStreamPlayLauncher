@@ -1,6 +1,7 @@
 import java.time.ZoneOffset
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
@@ -81,7 +82,7 @@ val fallbackPackage = app.text("applicationId", "com.streamplay.music")
  * properties / environment variables still win, so a local or one-off override keeps working.
  */
 val releaseSigningDir = file("src/google")
-val releaseSigningProps = java.util.Properties().apply {
+val releaseSigningProps = Properties().apply {
     releaseSigningDir.resolve("google-release-signing.properties").takeIf { it.isFile }?.inputStream()?.use { load(it) }
 }
 
